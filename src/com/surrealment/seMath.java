@@ -2,6 +2,18 @@ package com.surrealment;
 
 public class seMath {
 
+    /**
+     * Primitive number data types.
+     */
+    public enum NumberDataType {
+        Byte,
+        Short,
+        Int,
+        Long,
+        Float,
+        Double
+    }
+
     //region byte
 
     /**
@@ -407,18 +419,6 @@ public class seMath {
         if (value < min)
             return min;
         return value;
-    }
-
-    /**
-     * Primitive number data types.
-     */
-    public enum NumberDataType {
-        Byte,
-        Short,
-        Int,
-        Long,
-        Float,
-        Double
     }
 
     /**
