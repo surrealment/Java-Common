@@ -154,9 +154,9 @@ public class seVector3 {
      * @return
      */
     final public static seVector3 ClampAll(seVector3 vector, seVector3... ranges) {
-        if(ranges.length == 0)
+        if (ranges.length == 0)
             return vector;
-        if(ranges.length == 1)
+        if (ranges.length == 1)
             return ranges[0];
         return Min(Max(vector, seVector3.MinAll(ranges)), seVector3.MaxAll(ranges));
     }
@@ -608,12 +608,14 @@ public class seVector3 {
          * @param pos2
          */
         public Selection(seVector3 pos1, seVector3 pos2) {
-            if (pos1 == null || pos2 == null)
-                this.pos1 = this.pos2 = seVector3.zero;
-            else {
-                this.pos1 = seVector3.Min(pos1, pos2);
-                this.pos2 = seVector3.Max(pos1, pos2);
-            }
+            if (pos1 == null)
+                pos1 = seVector3.min;
+            if (pos2 == null)
+                pos2 = seVector3.max;
+            // Get smallest xyz to make pos1 vector.
+            this.pos1 = seVector3.Min(pos1, pos2);
+            // Get largest xyz to make pos2 vector.
+            this.pos2 = seVector3.Max(pos1, pos2);
         }
 
         /**
@@ -651,9 +653,9 @@ public class seVector3 {
          * @return
          */
         public boolean inRangeAllX(float... values) {
-            for(int i = 0; i < values.length ; i++)
-                if(values[i] < pos1.x && values[i] > pos2.x)
-                return false;
+            for (int i = 0; i < values.length; i++)
+                if (values[i] < pos1.x && values[i] > pos2.x)
+                    return false;
             return true;
         }
 
@@ -664,8 +666,8 @@ public class seVector3 {
          * @return
          */
         public boolean inRangeAllX(int... values) {
-            for(int i = 0; i < values.length ; i++)
-                if(values[i] < pos1.x && values[i] > pos2.x)
+            for (int i = 0; i < values.length; i++)
+                if (values[i] < pos1.x && values[i] > pos2.x)
                     return false;
             return true;
         }
@@ -697,8 +699,8 @@ public class seVector3 {
          * @return
          */
         public boolean inRangeAllY(float... values) {
-            for(int i = 0; i < values.length ; i++)
-                if(values[i] < pos1.y && values[i] > pos2.y)
+            for (int i = 0; i < values.length; i++)
+                if (values[i] < pos1.y && values[i] > pos2.y)
                     return false;
             return true;
         }
@@ -710,8 +712,8 @@ public class seVector3 {
          * @return
          */
         public boolean inRangeAllY(int... values) {
-            for(int i = 0; i < values.length ; i++)
-                if(values[i] < pos1.y && values[i] > pos2.y)
+            for (int i = 0; i < values.length; i++)
+                if (values[i] < pos1.y && values[i] > pos2.y)
                     return false;
             return true;
         }
@@ -743,8 +745,8 @@ public class seVector3 {
          * @return
          */
         public boolean inRangeAllZ(float... values) {
-            for(int i = 0; i < values.length ; i++)
-                if(values[i] < pos1.z && values[i] > pos2.z)
+            for (int i = 0; i < values.length; i++)
+                if (values[i] < pos1.z && values[i] > pos2.z)
                     return false;
             return true;
         }
@@ -756,8 +758,8 @@ public class seVector3 {
          * @return
          */
         public boolean inRangeAllZ(int... values) {
-            for(int i = 0; i < values.length ; i++)
-                if(values[i] < pos1.z && values[i] > pos2.z)
+            for (int i = 0; i < values.length; i++)
+                if (values[i] < pos1.z && values[i] > pos2.z)
                     return false;
             return true;
         }
@@ -803,9 +805,9 @@ public class seVector3 {
          * @return
          */
         public boolean inRangeAll(seVector3... vectors) {
-            for(int i = 0; i < vectors.length ; i++){
+            for (int i = 0; i < vectors.length; i++) {
                 seVector3 vector = vectors[i];
-                if(vector.x < pos1.x && vector.y < pos1.y && vector.z < pos1.z && vector.x > pos2.x && vector.y > pos2.y && vector.z > pos2.z)
+                if (vector.x < pos1.x && vector.y < pos1.y && vector.z < pos1.z && vector.x > pos2.x && vector.y > pos2.y && vector.z > pos2.z)
                     return false;
             }
             return true;
@@ -813,10 +815,11 @@ public class seVector3 {
 
         /**
          * Keep selection within range of min to max.
+         *
          * @param min
          * @param max
          */
-        public void clamp(seVector3 min, seVector3 max){
+        public void clamp(seVector3 min, seVector3 max) {
             pos1 = seVector3.ClampAll(pos1, min, max);
             pos2 = seVector3.ClampAll(pos2, min, max);
         }
