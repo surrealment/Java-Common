@@ -592,7 +592,13 @@ public class seVector3 {
      * Create a selection between 2 vectors.
      */
     public static class Selection {
+        /**
+         * Selection minimum.
+         */
         public seVector3 pos1;
+        /**
+         * Selection maximum.
+         */
         public seVector3 pos2;
 
         /**
@@ -764,7 +770,19 @@ public class seVector3 {
          * @param z
          * @return
          */
-        public boolean inRangeXYZ(float x, float y, float z) {
+        public boolean inRange(float x, float y, float z) {
+            return x >= pos1.x && y >= pos1.y && z >= pos1.z && x <= pos2.x && y <= pos2.y && z <= pos2.z;
+        }
+
+        /**
+         * Verifies vector ints are within selection.
+         *
+         * @param x
+         * @param y
+         * @param z
+         * @return
+         */
+        public boolean inRange(int x, int y, int z) {
             return x >= pos1.x && y >= pos1.y && z >= pos1.z && x <= pos2.x && y <= pos2.y && z <= pos2.z;
         }
 
@@ -774,8 +792,23 @@ public class seVector3 {
          * @param vector
          * @return
          */
-        public boolean inVectorRange(seVector3 vector) {
+        public boolean inRange(seVector3 vector) {
             return vector.x >= pos1.x && vector.y >= pos1.y && vector.z >= pos1.z && vector.x <= pos2.x && vector.y <= pos2.y && vector.z <= pos2.z;
+        }
+
+        /**
+         * Verifies vectors are within selection.
+         *
+         * @param vectors
+         * @return
+         */
+        public boolean inRangeAll(seVector3... vectors) {
+            for(int i = 0; i < vectors.length ; i++){
+                seVector3 vector = vectors[i];
+                if(vector.x < pos1.x && vector.y < pos1.y && vector.z < pos1.z && vector.x > pos2.x && vector.y > pos2.y && vector.z > pos2.z)
+                    return false;
+            }
+            return true;
         }
 
         /**
@@ -787,6 +820,5 @@ public class seVector3 {
             pos1 = seVector3.ClampAll(pos1, min, max);
             pos2 = seVector3.ClampAll(pos2, min, max);
         }
-
     }
 }
