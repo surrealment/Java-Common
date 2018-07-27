@@ -1,6 +1,6 @@
 package com.surrealment;
 
-public class sMath {
+public class seMath {
 
     //region byte
 
@@ -11,18 +11,18 @@ public class sMath {
      * @return
      */
     final public static byte TryParseByte(String s) {
-        s = sString.NullCheck(s);
+        s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
                 return (Byte.MAX_VALUE * -1 - 1);
             case "max":
                 return Byte.MAX_VALUE;
             case "ran":
-                return (byte) sRandom.Range((Byte.MAX_VALUE * -1 - 1), Byte.MAX_VALUE);
+                return (byte) seRandom.Range((Byte.MAX_VALUE * -1 - 1), Byte.MAX_VALUE);
             case "pos":
-                return (byte) sRandom.Range(1, Byte.MAX_VALUE);
+                return (byte) seRandom.Range(1, Byte.MAX_VALUE);
             case "neg":
-                return (byte) sRandom.Range((Byte.MAX_VALUE * -1 - 1), -1);
+                return (byte) seRandom.Range((Byte.MAX_VALUE * -1 - 1), -1);
             case "":
             case "null":
             case "zero":
@@ -166,18 +166,18 @@ public class sMath {
      * @return
      */
     final public static short TryParseShort(String s) {
-        s = sString.NullCheck(s);
+        s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
                 return (Short.MAX_VALUE * -1 - 1);
             case "max":
                 return Short.MAX_VALUE;
             case "ran":
-                return (short) sRandom.Range((Short.MAX_VALUE * -1 - 1), Short.MAX_VALUE);
+                return (short) seRandom.Range((Short.MAX_VALUE * -1 - 1), Short.MAX_VALUE);
             case "pos":
-                return (short) sRandom.Range(1, Short.MAX_VALUE);
+                return (short) seRandom.Range(1, Short.MAX_VALUE);
             case "neg":
-                return (short) sRandom.Range((Short.MAX_VALUE * -1 - 1), -1);
+                return (short) seRandom.Range((Short.MAX_VALUE * -1 - 1), -1);
             case "":
             case "null":
             case "zero":
@@ -231,7 +231,7 @@ public class sMath {
      */
     final public static short DataTypeClamp(Short value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
-            return sMath.Clamp(value, (short) ((Byte.MAX_VALUE * -1 - 1)), (short) Byte.MAX_VALUE);
+            return seMath.Clamp(value, (short) ((Byte.MAX_VALUE * -1 - 1)), (short) Byte.MAX_VALUE);
 
         return value;
     }
@@ -335,18 +335,18 @@ public class sMath {
      * @return
      */
     final public static int TryParseInt(String s) {
-        s = sString.NullCheck(s);
+        s = seString.NullCheck(s);
         switch (s.toLowerCase().trim()) {
             case "min":
                 return (Integer.MAX_VALUE * -1 - 1);
             case "max":
                 return Integer.MAX_VALUE;
             case "ran":
-                return sRandom.Range((Integer.MAX_VALUE * -1 - 1), Integer.MAX_VALUE);
+                return seRandom.Range((Integer.MAX_VALUE * -1 - 1), Integer.MAX_VALUE);
             case "pos":
-                return sRandom.Range(1, Integer.MAX_VALUE);
+                return seRandom.Range(1, Integer.MAX_VALUE);
             case "neg":
-                return sRandom.Range((Integer.MAX_VALUE * -1 - 1), -1);
+                return seRandom.Range((Integer.MAX_VALUE * -1 - 1), -1);
             case "":
             case "null":
             case "zero":
@@ -400,9 +400,9 @@ public class sMath {
      */
     final public static int DataTypeClamp(int value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
-            return sMath.Clamp(value, (int) (Byte.MAX_VALUE * -1 - 1), (int) Byte.MAX_VALUE);
+            return seMath.Clamp(value, (int) (Byte.MAX_VALUE * -1 - 1), (int) Byte.MAX_VALUE);
         if (dataType == NumberDataType.Short)
-            return sMath.Clamp(value, (int) (Short.MAX_VALUE * -1 - 1), (int) Short.MAX_VALUE);
+            return seMath.Clamp(value, (int) (Short.MAX_VALUE * -1 - 1), (int) Short.MAX_VALUE);
         return value;
     }
 
@@ -541,7 +541,7 @@ public class sMath {
      * @return
      */
     final public static long TryParseLong(String s) {
-        s = sString.NullCheck(s);
+        s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
                 return (Long.MAX_VALUE * -1 - 1);
@@ -592,6 +592,18 @@ public class sMath {
     }
 
     /**
+     * Primitive number data types.
+     */
+    public enum NumberDataType {
+        Byte,
+        Short,
+        Int,
+        Long,
+        Float,
+        Double
+    }
+
+    /**
      * Limit value to over minimum for data type and under maximum for data type.
      *
      * @param value
@@ -600,11 +612,11 @@ public class sMath {
      */
     final public static long DataTypeClamp(long value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
-            return sMath.Clamp(value, (long) (Byte.MAX_VALUE * -1 - 1), (long) Byte.MAX_VALUE);
+            return seMath.Clamp(value, (long) (Byte.MAX_VALUE * -1 - 1), (long) Byte.MAX_VALUE);
         if (dataType == NumberDataType.Short)
-            return sMath.Clamp(value, (long) (Short.MAX_VALUE * -1 - 1), (long) Short.MAX_VALUE);
+            return seMath.Clamp(value, (long) (Short.MAX_VALUE * -1 - 1), (long) Short.MAX_VALUE);
         if (dataType == NumberDataType.Int)
-            return sMath.Clamp(value, (long) (Integer.MAX_VALUE * -1 - 1), (long) Integer.MAX_VALUE);
+            return seMath.Clamp(value, (long) (Integer.MAX_VALUE * -1 - 1), (long) Integer.MAX_VALUE);
 
         return value;
     }
@@ -708,7 +720,7 @@ public class sMath {
      * @return
      */
     final public static float TryParseFloat(String s) {
-        s = sString.NullCheck(s);
+        s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
                 return (Float.MAX_VALUE * -1 - 1);
@@ -777,13 +789,13 @@ public class sMath {
      */
     final public static float DataTypeClamp(float value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
-            return sMath.Clamp(value, (float) (Byte.MAX_VALUE * -1 - 1), (float) Byte.MAX_VALUE);
+            return seMath.Clamp(value, (float) (Byte.MAX_VALUE * -1 - 1), (float) Byte.MAX_VALUE);
         if (dataType == NumberDataType.Short)
-            return sMath.Clamp(value, (float) (Short.MAX_VALUE * -1 - 1), (float) Short.MAX_VALUE);
+            return seMath.Clamp(value, (float) (Short.MAX_VALUE * -1 - 1), (float) Short.MAX_VALUE);
         if (dataType == NumberDataType.Int)
-            return sMath.Clamp(value, (float) (Integer.MAX_VALUE * -1 - 1), (float) Integer.MAX_VALUE);
+            return seMath.Clamp(value, (float) (Integer.MAX_VALUE * -1 - 1), (float) Integer.MAX_VALUE);
         if (dataType == NumberDataType.Long)
-            return sMath.Clamp(value, (float) (Long.MAX_VALUE * -1 - 1), (float) Long.MAX_VALUE);
+            return seMath.Clamp(value, (float) (Long.MAX_VALUE * -1 - 1), (float) Long.MAX_VALUE);
 
         return value;
     }
@@ -887,7 +899,7 @@ public class sMath {
      * @return
      */
     final public static double TryParseDouble(String s) {
-        s = sString.NullCheck(s);
+        s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
                 return (Double.MAX_VALUE * -1 - 1);
@@ -956,15 +968,15 @@ public class sMath {
      */
     final public static double DataTypeClamp(double value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
-            return sMath.Clamp(value, (double) (Byte.MAX_VALUE * -1 - 1), (double) Byte.MAX_VALUE);
+            return seMath.Clamp(value, (double) (Byte.MAX_VALUE * -1 - 1), (double) Byte.MAX_VALUE);
         if (dataType == NumberDataType.Short)
-            return sMath.Clamp(value, (double) (Short.MAX_VALUE * -1 - 1), (double) Short.MAX_VALUE);
+            return seMath.Clamp(value, (double) (Short.MAX_VALUE * -1 - 1), (double) Short.MAX_VALUE);
         if (dataType == NumberDataType.Int)
-            return sMath.Clamp(value, (double) (Integer.MAX_VALUE * -1 - 1), (double) Integer.MAX_VALUE);
+            return seMath.Clamp(value, (double) (Integer.MAX_VALUE * -1 - 1), (double) Integer.MAX_VALUE);
         if (dataType == NumberDataType.Long)
-            return sMath.Clamp(value, (double) (Long.MAX_VALUE * -1 - 1), (double) Long.MAX_VALUE);
+            return seMath.Clamp(value, (double) (Long.MAX_VALUE * -1 - 1), (double) Long.MAX_VALUE);
         if (dataType == NumberDataType.Float)
-            return sMath.Clamp(value, (double) (Float.MAX_VALUE * -1 - 1), (double) Float.MAX_VALUE);
+            return seMath.Clamp(value, (double) (Float.MAX_VALUE * -1 - 1), (double) Float.MAX_VALUE);
 
         return value;
     }

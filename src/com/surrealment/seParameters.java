@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class sParameters {
+public class seParameters {
 
     // Contains parsed string arg data.
     private static Map<String, String> database = new HashMap<String, String>();

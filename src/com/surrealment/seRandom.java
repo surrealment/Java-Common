@@ -1,6 +1,6 @@
 package com.surrealment;
 
-public class sRandom {
+public class seRandom {
 
     /**
      * Generate number greater or equal to minimum and less than or equal to maximum.

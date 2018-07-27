@@ -1,6 +1,6 @@
 package com.surrealment;
 
-public class sLoading {
+public class seLoading {
 
     // String array used to create a load string.
     final private static String[] loadString = new String[]{

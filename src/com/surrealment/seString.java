@@ -2,7 +2,7 @@ package com.surrealment;
 
 import java.math.BigDecimal;
 
-public class sString {
+public class seString {
     public static String NullCheck(String s) {
         if (s == null)
             return "";
@@ -60,7 +60,7 @@ public class sString {
         if (decimal.length() == 0)
             decimal = "0";
 
-        decimals = sMath.Clamp(decimals, 0, decimal.length());
+        decimals = seMath.Clamp(decimals, 0, decimal.length());
         if (decimal.length() > decimals)
             decimal = decimal.substring(0, decimals);
 

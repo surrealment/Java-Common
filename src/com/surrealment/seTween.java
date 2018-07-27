@@ -7,14 +7,14 @@ package com.surrealment;
  * C# to Java migration by Surreal Entertainment.
  * 7/16/2018
  */
-public class sTween {
+public class seTween {
 
     public static float Lerp(float start, float end, float val) {
         return Linear(start, end, val);
     }
 
     public static float Linear(float start, float end, float val) {
-        return start + (end - start) * sMath.Clamp01(val);
+        return start + (end - start) * seMath.Clamp01(val);
     }
 
     public static float Clerp(float start, float end, float val) {
@@ -34,7 +34,7 @@ public class sTween {
     }
 
     public static float Spring(float start, float end, float val) {
-        val = (float) sMath.Clamp01(val);
+        val = (float) seMath.Clamp01(val);
         val = (float) (Math.sin(val * Math.PI * (0.2f + 2.5f * val * val * val)) * Math.pow(1f - val, 2.2f) + val) * (1f + (1.2f * (1f - val)));
         return start + (end - start) * val;
     }

@@ -1,6 +1,6 @@
 package com.surrealment;
 
-public class sOut {
+public class seOut {
 
     private static String lastOut = "";
 
@@ -59,7 +59,7 @@ public class sOut {
      * Clear current line.
      */
     final public static void Clear() {
-        System.out.print("\r" + sString.ReplicateCharacter(' ', lastOut.length()));
+        System.out.print("\r" + seString.ReplicateCharacter(' ', lastOut.length()));
     }
 
     /**
@@ -69,7 +69,7 @@ public class sOut {
      * @param character
      */
     final public static void ClearWith(char character) {
-        System.out.print("\r" + sString.ReplicateCharacter(character, lastOut.length()));
+        System.out.print("\r" + seString.ReplicateCharacter(character, lastOut.length()));
     }
 
 }

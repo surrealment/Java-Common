@@ -1,55 +1,55 @@
 package com.surrealment;
 
-public class Vector3 {
+public class seVector3 {
 
     /**
      * Vector3(0, 0, -1)
      */
-    final public static Vector3 back = new Vector3(0, 0, -1);
+    final public static seVector3 back = new seVector3(0, 0, -1);
     /**
      * Vector3(0, -1, 1)
      */
-    final public static Vector3 down = new Vector3(0, -1, 1);
+    final public static seVector3 down = new seVector3(0, -1, 1);
     /**
      * Vector3(0, 0, 1)
      */
-    final public static Vector3 forward = new Vector3(0, 0, 1);
+    final public static seVector3 forward = new seVector3(0, 0, 1);
     /**
      * Vector3(-1, 0, 0)
      */
-    final public static Vector3 left = new Vector3(-1, 0, 0);
+    final public static seVector3 left = new seVector3(-1, 0, 0);
     /**
      * Vector3(1, 1, 1)
      */
-    final public static Vector3 one = new Vector3(1, 1, 1);
+    final public static seVector3 one = new seVector3(1, 1, 1);
     /**
      * Vector3(1, 0, 0)
      */
-    final public static Vector3 right = new Vector3(1, 0, 0);
+    final public static seVector3 right = new seVector3(1, 0, 0);
     /**
      * Vector3(0, 1, 0)
      */
-    final public static Vector3 up = new Vector3(0, 1, 0);
+    final public static seVector3 up = new seVector3(0, 1, 0);
     /**
      * Vector3(0, 0, 0)
      */
-    final public static Vector3 zero = new Vector3(0, 0, 0);
+    final public static seVector3 zero = new seVector3(0, 0, 0);
     /**
      * Creates new vector using negative infinity.
      */
-    final public static Vector3 negativeInfinity = new Vector3(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
+    final public static seVector3 negativeInfinity = new seVector3(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
     /**
      * Creates new vector using positive infinity.
      */
-    final public static Vector3 positiveInfinity = new Vector3(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY);
+    final public static seVector3 positiveInfinity = new seVector3(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY);
     /**
      * Provides the smallest possible vector.
      */
-    final public static Vector3 min = new Vector3(Float.MAX_VALUE * -1f - 1f, Float.MAX_VALUE * -1f - 1f, Float.MAX_VALUE * -1f - 1f);
+    final public static seVector3 min = new seVector3(Float.MAX_VALUE * -1f - 1f, Float.MAX_VALUE * -1f - 1f, Float.MAX_VALUE * -1f - 1f);
     /**
      * Provides the largest possible vector.
      */
-    final public static Vector3 max = new Vector3(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE);
+    final public static seVector3 max = new seVector3(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE);
     public float x = 0.0f;
     public float y = 0.0f;
     public float z = 0.0f;
@@ -57,7 +57,7 @@ public class Vector3 {
     /**
      * Initialize Vector3 with zero values.
      */
-    public Vector3() {
+    public seVector3() {
         this(0, 0, 0);
     }
 
@@ -68,7 +68,7 @@ public class Vector3 {
      * @param y
      * @param z
      */
-    public Vector3(int x, int y, int z) {
+    public seVector3(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -81,7 +81,7 @@ public class Vector3 {
      * @param y
      * @param z
      */
-    public Vector3(float x, float y, float z) {
+    public seVector3(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -91,30 +91,30 @@ public class Vector3 {
      * Provides new random vector.
      * Note: Integer used to determine min and max values.
      */
-    final public static Vector3 Random() {
+    final public static seVector3 Random() {
         final float min = (float) Integer.MAX_VALUE * -1 - 1;
         final float max = (float) Integer.MAX_VALUE;
-        return new Vector3(sRandom.Range(min, max), sRandom.Range(min, max), sRandom.Range(min, max));
+        return new seVector3(seRandom.Range(min, max), seRandom.Range(min, max), seRandom.Range(min, max));
     }
 
     /**
      * Provides new positive random vector.
      * Note: Integer used to determine min and max values.
      */
-    final public static Vector3 RandomPositive() {
+    final public static seVector3 RandomPositive() {
         final float min = 1f;
         final float max = Integer.MAX_VALUE;
-        return new Vector3(sRandom.Range(min, max), sRandom.Range(min, max), sRandom.Range(min, max));
+        return new seVector3(seRandom.Range(min, max), seRandom.Range(min, max), seRandom.Range(min, max));
     }
 
     /**
      * Provides new negative random vector.
      * Note: Integer used to determine min and max values.
      */
-    final public static Vector3 RandomNegative() {
+    final public static seVector3 RandomNegative() {
         final float min = (float) Integer.MAX_VALUE * -1 - 1;
         final float max = -1f;
-        return new Vector3(sRandom.Range(min, max), sRandom.Range(min, max), sRandom.Range(min, max));
+        return new seVector3(seRandom.Range(min, max), seRandom.Range(min, max), seRandom.Range(min, max));
     }
 
     /**
@@ -124,13 +124,13 @@ public class Vector3 {
      * @param max
      * @return
      */
-    final public static Vector3 RandomRange(float min, float max) {
+    final public static seVector3 RandomRange(float min, float max) {
         if (min > max) {
             float temp = min;
             min = max;
             max = temp;
         }
-        return new Vector3(sRandom.Range(min, max), sRandom.Range(min, max), sRandom.Range(min, max));
+        return new seVector3(seRandom.Range(min, max), seRandom.Range(min, max), seRandom.Range(min, max));
     }
 
     /**
@@ -141,7 +141,7 @@ public class Vector3 {
      * @param max
      * @return
      */
-    final public static Vector3 Clamp(Vector3 vector, Vector3 min, Vector3 max) {
+    final public static seVector3 Clamp(seVector3 vector, seVector3 min, seVector3 max) {
         return Min(Max(vector, min), max);
     }
 
@@ -153,12 +153,12 @@ public class Vector3 {
      * @param ranges
      * @return
      */
-    final public static Vector3 ClampAll(Vector3 vector, Vector3... ranges) {
+    final public static seVector3 ClampAll(seVector3 vector, seVector3... ranges) {
         if(ranges.length == 0)
             return vector;
         if(ranges.length == 1)
             return ranges[0];
-        return Min(Max(vector, Vector3.MinAll(ranges)), Vector3.MaxAll(ranges));
+        return Min(Max(vector, seVector3.MinAll(ranges)), seVector3.MaxAll(ranges));
     }
 
     /**
@@ -168,7 +168,7 @@ public class Vector3 {
      * @param b
      * @return
      */
-    final public static boolean AnyGreaterThan(Vector3 a, Vector3 b) {
+    final public static boolean AnyGreaterThan(seVector3 a, seVector3 b) {
         return a.x > b.x || a.y > b.y || a.z > b.z;
     }
 
@@ -179,7 +179,7 @@ public class Vector3 {
      * @param b
      * @return
      */
-    final public static boolean AnyLessThan(Vector3 a, Vector3 b) {
+    final public static boolean AnyLessThan(seVector3 a, seVector3 b) {
         return a.x < b.x || a.y < b.y || a.z < b.z;
     }
 
@@ -190,7 +190,7 @@ public class Vector3 {
      * @param b
      * @return
      */
-    final public static Float Distance(Vector3 a, Vector3 b) {
+    final public static Float Distance(seVector3 a, seVector3 b) {
         return (float) Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2) + Math.pow(a.z - b.z, 2));
     }
 
@@ -201,8 +201,8 @@ public class Vector3 {
      * @param b
      * @return
      */
-    final public static Vector3 Add(Vector3 a, Vector3 b) {
-        return new Vector3(a.x + b.x, a.y + b.y, a.z + b.z);
+    final public static seVector3 Add(seVector3 a, seVector3 b) {
+        return new seVector3(a.x + b.x, a.y + b.y, a.z + b.z);
     }
 
     /**
@@ -212,8 +212,8 @@ public class Vector3 {
      * @param b
      * @return
      */
-    final public static Vector3 Subtract(Vector3 a, Vector3 b) {
-        return new Vector3(a.x - b.x, a.y - b.y, a.z - b.z);
+    final public static seVector3 Subtract(seVector3 a, seVector3 b) {
+        return new seVector3(a.x - b.x, a.y - b.y, a.z - b.z);
     }
 
     /**
@@ -223,7 +223,7 @@ public class Vector3 {
      * @param vector
      * @return
      */
-    public static float Magnitude(Vector3 vector) {
+    public static float Magnitude(seVector3 vector) {
         return (float) Math.sqrt((float) ((double) vector.x * (double) vector.x + (double) vector.y * (double) vector.y + (double) vector.z * (double) vector.z));
     }
 
@@ -233,7 +233,7 @@ public class Vector3 {
      * @param vector
      * @return
      */
-    public static float SqrMagnitude(Vector3 vector) {
+    public static float SqrMagnitude(seVector3 vector) {
         return (float) ((double) vector.x * (double) vector.x + (double) vector.y * (double) vector.y + (double) vector.z * (double) vector.z);
     }
 
@@ -244,20 +244,20 @@ public class Vector3 {
      * @param b
      * @return
      */
-    public static float Dot(Vector3 a, Vector3 b) {
+    public static float Dot(seVector3 a, seVector3 b) {
         return (float) ((double) a.x * (double) b.x + (double) a.y * (double) b.y + (double) a.z * (double) b.z);
     }
 
     /**
      * Multiply a vector by a decimal number.
-     * Note: Replaced by {@link #Scale(Vector3, float)}.
+     * Note: Replaced by {@link #Scale(seVector3, float)}.
      *
      * @param vector
      * @param multiplier
      * @return
      */
     @Deprecated
-    final public static Vector3 Multiply(Vector3 vector, float multiplier) {
+    final public static seVector3 Multiply(seVector3 vector, float multiplier) {
         return Scale(vector, multiplier);
     }
 
@@ -268,8 +268,8 @@ public class Vector3 {
      * @param multiplier
      * @return
      */
-    final public static Vector3 Scale(Vector3 vector, float multiplier) {
-        return new Vector3(vector.x * multiplier, vector.y * multiplier, vector.z * multiplier);
+    final public static seVector3 Scale(seVector3 vector, float multiplier) {
+        return new seVector3(vector.x * multiplier, vector.y * multiplier, vector.z * multiplier);
     }
 
     /**
@@ -279,10 +279,10 @@ public class Vector3 {
      * @param divider
      * @return
      */
-    final public static Vector3 Divide(Vector3 vector, float divider) {
+    final public static seVector3 Divide(seVector3 vector, float divider) {
         if (divider == 0)
-            return Vector3.zero;
-        return new Vector3(vector.x / divider, vector.y / divider, vector.z / divider);
+            return seVector3.zero;
+        return new seVector3(vector.x / divider, vector.y / divider, vector.z / divider);
     }
 
     /**
@@ -291,10 +291,10 @@ public class Vector3 {
      * @param vectors
      * @return
      */
-    final public static boolean EqualAll(Vector3... vectors) {
+    final public static boolean EqualAll(seVector3... vectors) {
         if (vectors.length < 2)
             return true;
-        Vector3 first = vectors[0];
+        seVector3 first = vectors[0];
         for (int i = 0; i < vectors.length; i++)
             if (!first.equals(vectors))
                 return false;
@@ -307,28 +307,28 @@ public class Vector3 {
      * @param s
      * @return
      */
-    final public static Vector3 TryParse(String s) {
-        s = sString.NullCheck(s).replace("\"", "").trim().toLowerCase();
+    final public static seVector3 TryParse(String s) {
+        s = seString.NullCheck(s).replace("\"", "").trim().toLowerCase();
 
         switch (s) {
             case "min":
-                return Vector3.min;
+                return seVector3.min;
             case "max":
-                return Vector3.max;
+                return seVector3.max;
             case "back":
-                return Vector3.back;
+                return seVector3.back;
             case "down":
-                return Vector3.down;
+                return seVector3.down;
             case "forward":
-                return Vector3.forward;
+                return seVector3.forward;
             case "left":
-                return Vector3.left;
+                return seVector3.left;
             case "one":
-                return Vector3.one;
+                return seVector3.one;
             case "right":
-                return Vector3.right;
+                return seVector3.right;
             case "up":
-                return Vector3.up;
+                return seVector3.up;
             case "ran":
                 return Random();
             case "pos":
@@ -338,7 +338,7 @@ public class Vector3 {
             case "":
             case "null":
             case "zero":
-                return Vector3.zero;
+                return seVector3.zero;
         }
 
         // Find character vector has been split with.
@@ -358,7 +358,7 @@ public class Vector3 {
 
         // If no delimiters are found stop parse.
         if (pass == -1)
-            return Vector3.zero;
+            return seVector3.zero;
 
 
         // Get rid of other possible delimiters
@@ -369,7 +369,7 @@ public class Vector3 {
         }
 
         String[] sa = s.split(String.valueOf(del[pass]));
-        return new Vector3(sMath.TryParseFloat(sa[0]), sMath.TryParseFloat(sa[1]), sMath.TryParseFloat(sa[2]));
+        return new seVector3(seMath.TryParseFloat(sa[0]), seMath.TryParseFloat(sa[1]), seMath.TryParseFloat(sa[2]));
     }
 
     /**
@@ -380,9 +380,9 @@ public class Vector3 {
      * @param t
      * @return
      */
-    final public static Vector3 Lerp(Vector3 a, Vector3 b, float t) {
-        t = sMath.Clamp01(t);
-        return new Vector3(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t, a.z + (b.z - a.z) * t);
+    final public static seVector3 Lerp(seVector3 a, seVector3 b, float t) {
+        t = seMath.Clamp01(t);
+        return new seVector3(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t, a.z + (b.z - a.z) * t);
     }
 
     /**
@@ -392,18 +392,18 @@ public class Vector3 {
      * @param b
      * @return
      */
-    public static Vector3 Min(Vector3 a, Vector3 b) {
-        return new Vector3(sMath.Min(a.x, b.x), sMath.Min(a.y, b.y), sMath.Min(a.z, b.z));
+    public static seVector3 Min(seVector3 a, seVector3 b) {
+        return new seVector3(seMath.Min(a.x, b.x), seMath.Min(a.y, b.y), seMath.Min(a.z, b.z));
     }
 
     /**
      * Returns a new vector with smallest values between multiple vectors.
-     * Note: This method is slower than {@link #Min(Vector3, Vector3)} if using 2 vectors.
+     * Note: This method is slower than {@link #Min(seVector3, seVector3)} if using 2 vectors.
      *
      * @param vectors
      * @return
      */
-    public static Vector3 MinAll(Vector3... vectors) {
+    public static seVector3 MinAll(seVector3... vectors) {
         float[] x = new float[vectors.length];
         float[] y = new float[vectors.length];
         float[] z = new float[vectors.length];
@@ -412,7 +412,7 @@ public class Vector3 {
             y[i] = vectors[i].y;
             z[i] = vectors[i].z;
         }
-        return new Vector3(sMath.Min(x), sMath.Min(y), sMath.Min(z));
+        return new seVector3(seMath.Min(x), seMath.Min(y), seMath.Min(z));
     }
 
     /**
@@ -422,18 +422,18 @@ public class Vector3 {
      * @param b
      * @return
      */
-    public static Vector3 Max(Vector3 a, Vector3 b) {
-        return new Vector3(sMath.Max(a.x, b.x), sMath.Max(a.y, b.y), sMath.Max(a.z, b.z));
+    public static seVector3 Max(seVector3 a, seVector3 b) {
+        return new seVector3(seMath.Max(a.x, b.x), seMath.Max(a.y, b.y), seMath.Max(a.z, b.z));
     }
 
     /**
      * Returns a new vector with greatest values between multiple vectors.
-     * Note: This method is slower than {@link #Max(Vector3, Vector3)} if using 2 vectors.
+     * Note: This method is slower than {@link #Max(seVector3, seVector3)} if using 2 vectors.
      *
      * @param vectors
      * @return
      */
-    public static Vector3 MaxAll(Vector3... vectors) {
+    public static seVector3 MaxAll(seVector3... vectors) {
         float[] x = new float[vectors.length];
         float[] y = new float[vectors.length];
         float[] z = new float[vectors.length];
@@ -442,7 +442,7 @@ public class Vector3 {
             y[i] = vectors[i].y;
             z[i] = vectors[i].z;
         }
-        return new Vector3(sMath.Max(x), sMath.Max(y), sMath.Max(z));
+        return new seVector3(seMath.Max(x), seMath.Max(y), seMath.Max(z));
     }
 
     @Override
@@ -466,11 +466,11 @@ public class Vector3 {
             return true;
 
         // Make sure this is a Vector3 object.
-        if (!(o instanceof Vector3))
+        if (!(o instanceof seVector3))
             return false;
 
         // Convert to Vector3.
-        Vector3 c = (Vector3) o;
+        seVector3 c = (seVector3) o;
 
         // Compare x, y and z
         return Float.compare(this.x, c.x) == 0 && Float.compare(this.y, c.y) == 0 && Float.compare(this.z, c.z) == 0;
@@ -495,7 +495,7 @@ public class Vector3 {
      * @param vector
      * @return
      */
-    final public boolean anyGreaterThan(Vector3 vector) {
+    final public boolean anyGreaterThan(seVector3 vector) {
         return AnyGreaterThan(this, vector);
     }
 
@@ -505,7 +505,7 @@ public class Vector3 {
      * @param vector
      * @return
      */
-    final public boolean anyLessThan(Vector3 vector) {
+    final public boolean anyLessThan(seVector3 vector) {
         return AnyLessThan(this, vector);
     }
 
@@ -515,7 +515,7 @@ public class Vector3 {
      * @param other
      * @return
      */
-    final public Float distanceTo(Vector3 other) {
+    final public Float distanceTo(seVector3 other) {
         return Distance(this, other);
     }
 
@@ -525,7 +525,7 @@ public class Vector3 {
      * @param vector
      * @return
      */
-    final public Vector3 add(Vector3 vector) {
+    final public seVector3 add(seVector3 vector) {
         return Add(this, vector);
     }
 
@@ -535,7 +535,7 @@ public class Vector3 {
      * @param vector
      * @return
      */
-    final public Vector3 subtract(Vector3 vector) {
+    final public seVector3 subtract(seVector3 vector) {
         return Subtract(this, vector);
     }
 
@@ -564,7 +564,7 @@ public class Vector3 {
      * @param v
      * @return
      */
-    final public float dot(Vector3 v) {
+    final public float dot(seVector3 v) {
         return Dot(this, v);
     }
 
@@ -574,7 +574,7 @@ public class Vector3 {
      * @param multiplier
      * @return
      */
-    final public Vector3 multiply(float multiplier) {
+    final public seVector3 multiply(float multiplier) {
         return Scale(this, multiplier);
     }
 
@@ -584,7 +584,7 @@ public class Vector3 {
      * @param divider
      * @return
      */
-    final public Vector3 divide(float divider) {
+    final public seVector3 divide(float divider) {
         return Divide(this, divider);
     }
 
@@ -592,8 +592,8 @@ public class Vector3 {
      * Create a selection between 2 vectors.
      */
     public static class Selection {
-        public Vector3 pos1;
-        public Vector3 pos2;
+        public seVector3 pos1;
+        public seVector3 pos2;
 
         /**
          * Initialize with 2 vectors.
@@ -601,12 +601,12 @@ public class Vector3 {
          * @param pos1
          * @param pos2
          */
-        public Selection(Vector3 pos1, Vector3 pos2) {
+        public Selection(seVector3 pos1, seVector3 pos2) {
             if (pos1 == null || pos2 == null)
-                this.pos1 = this.pos2 = Vector3.zero;
+                this.pos1 = this.pos2 = seVector3.zero;
             else {
-                this.pos1 = Vector3.Min(pos1, pos2);
-                this.pos2 = Vector3.Max(pos1, pos2);
+                this.pos1 = seVector3.Min(pos1, pos2);
+                this.pos2 = seVector3.Max(pos1, pos2);
             }
         }
 
@@ -614,8 +614,8 @@ public class Vector3 {
          * Initialize with the largest possible selection.
          */
         public Selection() {
-            this.pos1 = Vector3.min;
-            this.pos2 = Vector3.max;
+            this.pos1 = seVector3.min;
+            this.pos2 = seVector3.max;
         }
 
         /**
@@ -774,7 +774,7 @@ public class Vector3 {
          * @param vector
          * @return
          */
-        public boolean inVectorRange(Vector3 vector) {
+        public boolean inVectorRange(seVector3 vector) {
             return vector.x >= pos1.x && vector.y >= pos1.y && vector.z >= pos1.z && vector.x <= pos2.x && vector.y <= pos2.y && vector.z <= pos2.z;
         }
 
@@ -783,9 +783,9 @@ public class Vector3 {
          * @param min
          * @param max
          */
-        public void clamp(Vector3 min, Vector3 max){
-            pos1 = Vector3.ClampAll(pos1, min, max);
-            pos2 = Vector3.ClampAll(pos2, min, max);
+        public void clamp(seVector3 min, seVector3 max){
+            pos1 = seVector3.ClampAll(pos1, min, max);
+            pos2 = seVector3.ClampAll(pos2, min, max);
         }
 
     }

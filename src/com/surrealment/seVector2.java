@@ -1,54 +1,54 @@
 package com.surrealment;
 
-public class Vector2 {
+public class seVector2 {
 
     /**
      * Vector2(0, -1)
      */
-    final public static Vector2 down = new Vector2(0, -1);
+    final public static seVector2 down = new seVector2(0, -1);
     /**
      * Vector2(-1, 0)
      */
-    final public static Vector2 left = new Vector2(-1, 0);
+    final public static seVector2 left = new seVector2(-1, 0);
     /**
      * Vector2(1, 1)
      */
-    final public static Vector2 one = new Vector2(1, 1);
+    final public static seVector2 one = new seVector2(1, 1);
     /**
      * Vector2(1, 0)
      */
-    final public static Vector2 right = new Vector2(1, 0);
+    final public static seVector2 right = new seVector2(1, 0);
     /**
      * Vector2(0, 1)
      */
-    final public static Vector2 up = new Vector2(0, 1);
+    final public static seVector2 up = new seVector2(0, 1);
     /**
      * Vector2(0, 0)
      */
-    final public static Vector2 zero = new Vector2(0, 0);
+    final public static seVector2 zero = new seVector2(0, 0);
     /**
      * Creates new vector using negative infinity.
      */
-    final public static Vector2 negativeInfinity = new Vector2(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
+    final public static seVector2 negativeInfinity = new seVector2(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
     /**
      * Creates new vector using positive infinity.
      */
-    final public static Vector2 positiveInfinity = new Vector2(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY);
+    final public static seVector2 positiveInfinity = new seVector2(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY);
     /**
      * Provides the smallest possible vector.
      */
-    final public static Vector2 min = new Vector2(Float.MAX_VALUE * -1f - 1f, Float.MAX_VALUE * -1f - 1f);
+    final public static seVector2 min = new seVector2(Float.MAX_VALUE * -1f - 1f, Float.MAX_VALUE * -1f - 1f);
     /**
      * Provides the largest possible vector.
      */
-    final public static Vector2 max = new Vector2(Float.MAX_VALUE, Float.MAX_VALUE);
+    final public static seVector2 max = new seVector2(Float.MAX_VALUE, Float.MAX_VALUE);
     public float x = 0.0f;
     public float y = 0.0f;
 
     /**
      * Initialize Vector2 with zero values.
      */
-    public Vector2() {
+    public seVector2() {
         this(0, 0);
     }
 
@@ -58,7 +58,7 @@ public class Vector2 {
      * @param x
      * @param y
      */
-    public Vector2(int x, int y) {
+    public seVector2(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -69,7 +69,7 @@ public class Vector2 {
      * @param x
      * @param y
      */
-    public Vector2(float x, float y) {
+    public seVector2(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -78,30 +78,30 @@ public class Vector2 {
      * Provides new random vector.
      * Note: Integer used to determine min and max values.
      */
-    final public static Vector2 Random() {
+    final public static seVector2 Random() {
         final float min = (float) Integer.MAX_VALUE * -1 - 1;
         final float max = (float) Integer.MAX_VALUE;
-        return new Vector2(sRandom.Range(min, max), sRandom.Range(min, max));
+        return new seVector2(seRandom.Range(min, max), seRandom.Range(min, max));
     }
 
     /**
      * Provides new positive random vector.
      * Note: Integer used to determine min and max values.
      */
-    final public static Vector2 RandomPositive() {
+    final public static seVector2 RandomPositive() {
         final float min = 1f;
         final float max = Integer.MAX_VALUE;
-        return new Vector2(sRandom.Range(min, max), sRandom.Range(min, max));
+        return new seVector2(seRandom.Range(min, max), seRandom.Range(min, max));
     }
 
     /**
      * Provides new negative random vector.
      * Note: Integer used to determine min and max values.
      */
-    final public static Vector2 RandomNegative() {
+    final public static seVector2 RandomNegative() {
         final float min = (float) Integer.MAX_VALUE * -1 - 1;
         final float max = -1f;
-        return new Vector2(sRandom.Range(min, max), sRandom.Range(min, max));
+        return new seVector2(seRandom.Range(min, max), seRandom.Range(min, max));
     }
 
     /**
@@ -111,13 +111,13 @@ public class Vector2 {
      * @param max
      * @return
      */
-    final public static Vector2 RandomRange(float min, float max) {
+    final public static seVector2 RandomRange(float min, float max) {
         if (min > max) {
             float temp = min;
             min = max;
             max = temp;
         }
-        return new Vector2(sRandom.Range(min, max), sRandom.Range(min, max));
+        return new seVector2(seRandom.Range(min, max), seRandom.Range(min, max));
     }
 
     /**
@@ -127,7 +127,7 @@ public class Vector2 {
      * @param b
      * @return
      */
-    final public static boolean AnyGreaterThan(Vector2 a, Vector2 b) {
+    final public static boolean AnyGreaterThan(seVector2 a, seVector2 b) {
         return a.x > b.x || a.y > b.y;
     }
 
@@ -138,7 +138,7 @@ public class Vector2 {
      * @param b
      * @return
      */
-    final public static boolean AnyLessThan(Vector2 a, Vector2 b) {
+    final public static boolean AnyLessThan(seVector2 a, seVector2 b) {
         return a.x < b.x || a.y < b.y;
     }
 
@@ -149,7 +149,7 @@ public class Vector2 {
      * @param b
      * @return
      */
-    final public static Float Distance(Vector2 a, Vector2 b) {
+    final public static Float Distance(seVector2 a, seVector2 b) {
         return (float) Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
     }
 
@@ -160,8 +160,8 @@ public class Vector2 {
      * @param b
      * @return
      */
-    final public static Vector2 Add(Vector2 a, Vector2 b) {
-        return new Vector2(a.x + b.x, a.y + b.y);
+    final public static seVector2 Add(seVector2 a, seVector2 b) {
+        return new seVector2(a.x + b.x, a.y + b.y);
     }
 
     /**
@@ -171,8 +171,8 @@ public class Vector2 {
      * @param b
      * @return
      */
-    final public static Vector2 Subtract(Vector2 a, Vector2 b) {
-        return new Vector2(a.x - b.x, a.y - b.y);
+    final public static seVector2 Subtract(seVector2 a, seVector2 b) {
+        return new seVector2(a.x - b.x, a.y - b.y);
     }
 
     /**
@@ -182,7 +182,7 @@ public class Vector2 {
      * @param vector
      * @return
      */
-    public static float Magnitude(Vector2 vector) {
+    public static float Magnitude(seVector2 vector) {
         return (float) Math.sqrt((double) vector.x * (double) vector.x + (double) vector.y * (double) vector.y);
     }
 
@@ -192,7 +192,7 @@ public class Vector2 {
      * @param vector
      * @return
      */
-    public static float SqrMagnitude(Vector2 vector) {
+    public static float SqrMagnitude(seVector2 vector) {
         return (float) ((double) vector.x * (double) vector.x + (double) vector.y * (double) vector.y);
     }
 
@@ -203,20 +203,20 @@ public class Vector2 {
      * @param b
      * @return
      */
-    public static float Dot(Vector2 a, Vector2 b) {
+    public static float Dot(seVector2 a, seVector2 b) {
         return (float) ((double) a.x * (double) b.x + (double) a.y * (double) b.y);
     }
 
     /**
      * Multiply a vector by a number.
-     * Note: This method uses {@link #Scale(Vector2, float)}.
+     * Note: This method uses {@link #Scale(seVector2, float)}.
      *
      * @param vector
      * @param multiplier
      * @return
      */
     @Deprecated
-    final public static Vector2 Multiply(Vector2 vector, float multiplier) {
+    final public static seVector2 Multiply(seVector2 vector, float multiplier) {
         return Scale(vector, multiplier);
     }
 
@@ -227,8 +227,8 @@ public class Vector2 {
      * @param multiplier
      * @return
      */
-    final public static Vector2 Scale(Vector2 vector, float multiplier) {
-        return new Vector2(vector.x * multiplier, vector.y * multiplier);
+    final public static seVector2 Scale(seVector2 vector, float multiplier) {
+        return new seVector2(vector.x * multiplier, vector.y * multiplier);
     }
 
     /**
@@ -238,10 +238,10 @@ public class Vector2 {
      * @param divider
      * @return
      */
-    final public static Vector2 Divide(Vector2 vector, float divider) {
+    final public static seVector2 Divide(seVector2 vector, float divider) {
         if (divider == 0)
-            return Vector2.zero;
-        return new Vector2(vector.x / divider, vector.y / divider);
+            return seVector2.zero;
+        return new seVector2(vector.x / divider, vector.y / divider);
     }
 
     /**
@@ -250,10 +250,10 @@ public class Vector2 {
      * @param vectors
      * @return
      */
-    final public static boolean EqualAll(Vector2... vectors) {
+    final public static boolean EqualAll(seVector2... vectors) {
         if (vectors.length < 2)
             return true;
-        Vector2 first = vectors[0];
+        seVector2 first = vectors[0];
         for (int i = 0; i < vectors.length; i++)
             if (!first.equals(vectors))
                 return false;
@@ -266,24 +266,24 @@ public class Vector2 {
      * @param s
      * @return
      */
-    final public static Vector2 TryParse(String s) {
-        s = sString.NullCheck(s).replace("\"", "").trim().toLowerCase();
+    final public static seVector2 TryParse(String s) {
+        s = seString.NullCheck(s).replace("\"", "").trim().toLowerCase();
 
         switch (s) {
             case "min":
-                return Vector2.min;
+                return seVector2.min;
             case "max":
-                return Vector2.max;
+                return seVector2.max;
             case "down":
-                return Vector2.down;
+                return seVector2.down;
             case "left":
-                return Vector2.left;
+                return seVector2.left;
             case "one":
-                return Vector2.one;
+                return seVector2.one;
             case "right":
-                return Vector2.right;
+                return seVector2.right;
             case "up":
-                return Vector2.up;
+                return seVector2.up;
             case "ran":
                 return Random();
             case "pos":
@@ -293,7 +293,7 @@ public class Vector2 {
             case "":
             case "null":
             case "zero":
-                return Vector2.zero;
+                return seVector2.zero;
         }
 
         // Find character vector has been split with.
@@ -313,7 +313,7 @@ public class Vector2 {
 
         // If no delimiters are found stop parse.
         if (pass == -1)
-            return Vector2.zero;
+            return seVector2.zero;
 
 
         // Get rid of other possible delimiters
@@ -324,7 +324,7 @@ public class Vector2 {
         }
 
         String[] sa = s.split(String.valueOf(del[pass]));
-        return new Vector2(sMath.TryParseFloat(sa[0]), sMath.TryParseFloat(sa[1]));
+        return new seVector2(seMath.TryParseFloat(sa[0]), seMath.TryParseFloat(sa[1]));
     }
 
     /**
@@ -335,9 +335,9 @@ public class Vector2 {
      * @param t
      * @return
      */
-    final public static Vector2 Lerp(Vector2 a, Vector2 b, float t) {
-        t = sMath.Clamp01(t);
-        return new Vector2(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
+    final public static seVector2 Lerp(seVector2 a, seVector2 b, float t) {
+        t = seMath.Clamp01(t);
+        return new seVector2(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
     }
 
     /**
@@ -347,18 +347,18 @@ public class Vector2 {
      * @param b
      * @return
      */
-    public static Vector2 Min(Vector2 a, Vector2 b) {
-        return new Vector2(sMath.Min(a.x, b.x), sMath.Min(a.y, b.y));
+    public static seVector2 Min(seVector2 a, seVector2 b) {
+        return new seVector2(seMath.Min(a.x, b.x), seMath.Min(a.y, b.y));
     }
 
     /**
      * Returns a new vector with smallest values between multiple vectors.
-     * Note: This method is slower than {@link #Min(Vector2, Vector2)} if using 2 vectors.
+     * Note: This method is slower than {@link #Min(seVector2, seVector2)} if using 2 vectors.
      *
      * @param vectors
      * @return
      */
-    public static Vector2 MinAll(Vector2... vectors) {
+    public static seVector2 MinAll(seVector2... vectors) {
         float[] x = new float[vectors.length];
         float[] y = new float[vectors.length];
         float[] z = new float[vectors.length];
@@ -366,7 +366,7 @@ public class Vector2 {
             x[i] = vectors[i].x;
             y[i] = vectors[i].y;
         }
-        return new Vector2(sMath.Min(x), sMath.Min(y));
+        return new seVector2(seMath.Min(x), seMath.Min(y));
     }
 
     /**
@@ -376,25 +376,25 @@ public class Vector2 {
      * @param b
      * @return
      */
-    public static Vector2 Max(Vector2 a, Vector2 b) {
-        return new Vector2(sMath.Max(a.x, b.x), sMath.Max(a.y, b.y));
+    public static seVector2 Max(seVector2 a, seVector2 b) {
+        return new seVector2(seMath.Max(a.x, b.x), seMath.Max(a.y, b.y));
     }
 
     /**
      * Returns a new vector with greatest values between multiple vectors.
-     * Note: This method is slower than {@link #Max(Vector2, Vector2)} if using 2 vectors.
+     * Note: This method is slower than {@link #Max(seVector2, seVector2)} if using 2 vectors.
      *
      * @param vectors
      * @return
      */
-    public static Vector2 MaxAll(Vector2... vectors) {
+    public static seVector2 MaxAll(seVector2... vectors) {
         float[] x = new float[vectors.length];
         float[] y = new float[vectors.length];
         for (int i = 0; i < vectors.length; i++) {
             x[i] = vectors[i].x;
             y[i] = vectors[i].y;
         }
-        return new Vector2(sMath.Max(x), sMath.Max(y));
+        return new seVector2(seMath.Max(x), seMath.Max(y));
     }
 
     @Override
@@ -418,11 +418,11 @@ public class Vector2 {
             return true;
 
         // Make sure this is a Vector2 object.
-        if (!(o instanceof Vector2))
+        if (!(o instanceof seVector2))
             return false;
 
         // Convert to Vector2.
-        Vector2 c = (Vector2) o;
+        seVector2 c = (seVector2) o;
 
         // Compare x, y and z
         return Float.compare(this.x, c.x) == 0 && Float.compare(this.y, c.y) == 0;
@@ -445,7 +445,7 @@ public class Vector2 {
      * @param vector
      * @return
      */
-    final public boolean anyGreaterThan(Vector2 vector) {
+    final public boolean anyGreaterThan(seVector2 vector) {
         return AnyGreaterThan(this, vector);
     }
 
@@ -455,7 +455,7 @@ public class Vector2 {
      * @param vector
      * @return
      */
-    final public boolean anyLessThan(Vector2 vector) {
+    final public boolean anyLessThan(seVector2 vector) {
         return AnyLessThan(this, vector);
     }
 
@@ -465,7 +465,7 @@ public class Vector2 {
      * @param other
      * @return
      */
-    final public Float distanceTo(Vector2 other) {
+    final public Float distanceTo(seVector2 other) {
         return Distance(this, other);
     }
 
@@ -475,7 +475,7 @@ public class Vector2 {
      * @param vector
      * @return
      */
-    final public Vector2 add(Vector2 vector) {
+    final public seVector2 add(seVector2 vector) {
         return Add(this, vector);
     }
 
@@ -485,7 +485,7 @@ public class Vector2 {
      * @param vector
      * @return
      */
-    final public Vector2 subtract(Vector2 vector) {
+    final public seVector2 subtract(seVector2 vector) {
         return Subtract(this, vector);
     }
 
@@ -514,7 +514,7 @@ public class Vector2 {
      * @param v
      * @return
      */
-    final public float dot(Vector2 v) {
+    final public float dot(seVector2 v) {
         return Dot(this, v);
     }
 
@@ -524,7 +524,7 @@ public class Vector2 {
      * @param multiplier
      * @return
      */
-    final public Vector2 multiply(float multiplier) {
+    final public seVector2 multiply(float multiplier) {
         return Scale(this, multiplier);
     }
 
@@ -534,7 +534,7 @@ public class Vector2 {
      * @param divider
      * @return
      */
-    final public Vector2 divide(float divider) {
+    final public seVector2 divide(float divider) {
         return Divide(this, divider);
     }
 
