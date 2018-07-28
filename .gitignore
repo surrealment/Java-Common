@@ -12,3 +12,6 @@
 # Other
 .idea
 *.iml
+META-INF
+build
+artifacts
