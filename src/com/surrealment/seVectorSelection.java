@@ -282,7 +282,7 @@ public class seVectorSelection {
      * @param min
      * @param max
      */
-    public final void clamp(seVector3 min, seVector3 max) {
+    public final seVectorSelection clamp(seVector3 min, seVector3 max) {
         // Make sure all of min is less than max.
         if (min.anyGreaterThan(max)) {
             seVector3 temp = seVector3.Min(min, max);
@@ -299,6 +299,8 @@ public class seVectorSelection {
         max_x = seMath.Min(max_x, max.x);
         max_y = seMath.Min(max_y, max.y);
         max_z = seMath.Min(max_z, max.z);
+
+        return this;
     }
 
     /**
@@ -306,7 +308,7 @@ public class seVectorSelection {
      *
      * @param amt
      */
-    public final void shrink(float amt) {
+    public final seVectorSelection shrink(float amt) {
         amt = Math.abs(amt / 2f);
         min_x += amt;
         min_y += amt;
@@ -324,6 +326,8 @@ public class seVectorSelection {
             min_z = max_z = (min_z + max_z) / 2f;
         if (min_w > max_w)
             min_w = max_w = (min_w + max_w) / 2f;
+
+        return this;
     }
 
     /**
@@ -331,7 +335,7 @@ public class seVectorSelection {
      *
      * @param amt
      */
-    public final void grow(float amt) {
+    public final seVectorSelection grow(float amt) {
         amt = Math.abs(amt / 2f);
         min_x -= amt;
         min_y -= amt;
@@ -340,6 +344,8 @@ public class seVectorSelection {
         max_x += amt;
         max_y += amt;
         max_z += amt;
+
+        return this;
     }
 
 }
