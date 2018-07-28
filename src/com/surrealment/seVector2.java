@@ -324,7 +324,7 @@ public class seVector2 {
         }
 
         String[] sa = s.split(String.valueOf(del[pass]));
-        return new seVector2(seMath.TryParseFloat(sa[0]), seMath.TryParseFloat(sa[1]));
+        return new seVector2(seString.TryParseFloat(sa[0]), seString.TryParseFloat(sa[1]));
     }
 
     /**

@@ -142,7 +142,7 @@ public class seVector3 {
      * @return
      */
     final public static seVector3 Clamp(seVector3 vector, seVector3 min, seVector3 max) {
-        return Min(Max(vector, min), max);
+        return Min(Max(vector, Min(min, max)), Max(min, max));
     }
 
     /**
@@ -369,7 +369,7 @@ public class seVector3 {
         }
 
         String[] sa = s.split(String.valueOf(del[pass]));
-        return new seVector3(seMath.TryParseFloat(sa[0]), seMath.TryParseFloat(sa[1]), seMath.TryParseFloat(sa[2]));
+        return new seVector3(seString.TryParseFloat(sa[0]), seString.TryParseFloat(sa[1]), seString.TryParseFloat(sa[2]));
     }
 
     /**
