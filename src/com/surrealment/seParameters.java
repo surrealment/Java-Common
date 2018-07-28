@@ -18,28 +18,28 @@ public class seParameters {
      *
      * @param args
      */
-    final public static void Parse(String... args) {
+    public static void Parse(String... args) {
         if (args.length == 0)
             return;
 
-        String combined = args[0];
+        StringBuilder combined = new StringBuilder(args[0]);
         boolean lastE = false;
         for (int i = 1; i < args.length; i++) {
             if (args[i].indexOf(' ') != -1)
                 args[i] = "\"" + args[i] + "\"";
 
             if (!lastE && !args[i].endsWith("="))
-                combined += " ";
-            combined += args[i];
+                combined.append(" ");
+            combined.append(args[i]);
             lastE = args[i].endsWith("=");
         }
 
         // Trim spaces on either size of the equals.
-        combined = combined.replaceAll(" +=", "=").replaceAll("=+ ", "=").replaceAll("=+", "=");
+        combined = new StringBuilder(combined.toString().replaceAll(" +=", "=").replaceAll("=+ ", "=").replaceAll("=+", "="));
 
         List<String> matchList = new ArrayList<String>();
         Pattern regex = Pattern.compile("(['\"])((?:\\\\\\1|.)+?)\\1|([^\\s\"']+)");
-        Matcher regexMatcher = regex.matcher(combined);
+        Matcher regexMatcher = regex.matcher(combined.toString());
         boolean endedEquals = false;
         while (regexMatcher.find()) {
             if (regexMatcher.group(2) != null) {
@@ -81,7 +81,7 @@ public class seParameters {
      * @param keys
      * @return
      */
-    final public static boolean Exists(String... keys) {
+    public static boolean Exists(String... keys) {
         for (int i = 0; i < keys.length; i++)
             if (database.containsKey(keys[i]))
                 return true;
@@ -95,7 +95,7 @@ public class seParameters {
      * @param values
      * @return
      */
-    final public static boolean Equals(String key, String... values) {
+    public static boolean Equals(String key, String... values) {
         String value = Value(key);
         for (int i = 0; i < values.length; i++)
             if (value == values[i])
@@ -109,7 +109,7 @@ public class seParameters {
      * @param keys
      * @return
      */
-    final public static String Value(String... keys) {
+    public static String Value(String... keys) {
         return ValueDefault(null, keys);
     }
 
@@ -120,7 +120,7 @@ public class seParameters {
      * @param keys
      * @return
      */
-    final public static String ValueDefault(String defaultValue, String... keys) {
+    public static String ValueDefault(String defaultValue, String... keys) {
         for (int i = 0; i < keys.length; i++)
             if (database.containsKey(keys[i]))
                 return database.get(keys[i]);
@@ -133,7 +133,7 @@ public class seParameters {
      * @param value
      * @param keys
      */
-    final public static void Update(String value, String... keys) {
+    public static void Update(String value, String... keys) {
         for (int i = 0; i < keys.length; i++)
             if (database.containsKey(keys[i]))
                 database.replace(keys[i], value);

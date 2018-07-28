@@ -129,7 +129,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static byte TryParseByte(String s) {
+    public static byte TryParseByte(String s) {
         s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
@@ -163,7 +163,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static byte[] TryParseByte(String[] s) {
+    public static byte[] TryParseByte(String[] s) {
         byte[] retVal = new byte[s.length];
         for (int i = 0; i < s.length; i++)
             retVal[i] = TryParseByte(s[i]);
@@ -176,7 +176,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static short TryParseShort(String s) {
+    public static short TryParseShort(String s) {
         s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
@@ -210,7 +210,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static short[] TryParseShort(String[] s) {
+    public static short[] TryParseShort(String[] s) {
         short[] retVal = new short[s.length];
         for (int i = 0; i < s.length; i++)
             retVal[i] = TryParseShort(s[i]);
@@ -223,7 +223,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static int TryParseInt(String s) {
+    public static int TryParseInt(String s) {
         s = seString.NullCheck(s);
         switch (s.toLowerCase().trim()) {
             case "min":
@@ -257,7 +257,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static int[] TryParseInt(String[] s) {
+    public static int[] TryParseInt(String[] s) {
         int[] retVal = new int[s.length];
         for (int i = 0; i < s.length; i++)
             retVal[i] = TryParseInt(s[i]);
@@ -270,7 +270,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static long TryParseLong(String s) {
+    public static long TryParseLong(String s) {
         s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
@@ -280,13 +280,13 @@ public class seString {
             case "ran":
                 return seRandom.Range((Long.MAX_VALUE * -1 - 1), Long.MAX_VALUE);
             case "pos":
-                return seRandom.Range(1l, Long.MAX_VALUE);
+                return seRandom.Range(1L, Long.MAX_VALUE);
             case "neg":
-                return seRandom.Range((Long.MAX_VALUE * -1 - 1), -1l);
+                return seRandom.Range((Long.MAX_VALUE * -1 - 1), -1L);
             case "":
             case "null":
             case "zero":
-                return 0l;
+                return 0L;
         }
         try {
             return Long.parseLong(s);
@@ -294,7 +294,7 @@ public class seString {
             System.out.println("ERROR \"" + s + "\" is not in valid long data type format!");
             System.out.println("      Use numbers between " + (Long.MAX_VALUE * -1 - 1) + " and " + Long.MAX_VALUE + ".");
             System.out.println("      Or use keywords min, max or zero.");
-            return 0l;
+            return 0L;
         }
     }
 
@@ -304,7 +304,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static long[] TryParseLong(String[] s) {
+    public static long[] TryParseLong(String[] s) {
         long[] retVal = new long[s.length];
         for (int i = 0; i < s.length; i++)
             retVal[i] = TryParseLong(s[i]);
@@ -317,7 +317,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static float TryParseFloat(String s) {
+    public static float TryParseFloat(String s) {
         s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
@@ -351,7 +351,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static float[] TryParseFloat(String[] s) {
+    public static float[] TryParseFloat(String[] s) {
         float[] retVal = new float[s.length];
         for (int i = 0; i < s.length; i++)
             retVal[i] = TryParseFloat(s[i]);
@@ -364,7 +364,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static double TryParseDouble(String s) {
+    public static double TryParseDouble(String s) {
         s = seString.NullCheck(s);
         switch (s.toLowerCase()) {
             case "min":
@@ -392,7 +392,7 @@ public class seString {
      * @param s
      * @return
      */
-    final public static double[] TryParseDouble(String[] s) {
+    public static double[] TryParseDouble(String[] s) {
         double[] retVal = new double[s.length];
         for (int i = 0; i < s.length; i++)
             retVal[i] = TryParseDouble(s[i]);

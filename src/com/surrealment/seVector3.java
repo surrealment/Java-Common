@@ -2,54 +2,6 @@ package com.surrealment;
 
 public class seVector3 {
 
-    /**
-     * Vector3(0, 0, -1)
-     */
-    final public static seVector3 back = new seVector3(0, 0, -1);
-    /**
-     * Vector3(0, -1, 1)
-     */
-    final public static seVector3 down = new seVector3(0, -1, 1);
-    /**
-     * Vector3(0, 0, 1)
-     */
-    final public static seVector3 forward = new seVector3(0, 0, 1);
-    /**
-     * Vector3(-1, 0, 0)
-     */
-    final public static seVector3 left = new seVector3(-1, 0, 0);
-    /**
-     * Vector3(1, 1, 1)
-     */
-    final public static seVector3 one = new seVector3(1, 1, 1);
-    /**
-     * Vector3(1, 0, 0)
-     */
-    final public static seVector3 right = new seVector3(1, 0, 0);
-    /**
-     * Vector3(0, 1, 0)
-     */
-    final public static seVector3 up = new seVector3(0, 1, 0);
-    /**
-     * Vector3(0, 0, 0)
-     */
-    final public static seVector3 zero = new seVector3(0, 0, 0);
-    /**
-     * Creates new vector using negative infinity.
-     */
-    final public static seVector3 negativeInfinity = new seVector3(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
-    /**
-     * Creates new vector using positive infinity.
-     */
-    final public static seVector3 positiveInfinity = new seVector3(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY);
-    /**
-     * Provides the smallest possible vector.
-     */
-    final public static seVector3 min = new seVector3(Float.MAX_VALUE * -1f - 1f, Float.MAX_VALUE * -1f - 1f, Float.MAX_VALUE * -1f - 1f);
-    /**
-     * Provides the largest possible vector.
-     */
-    final public static seVector3 max = new seVector3(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE);
     public float x = 0.0f;
     public float y = 0.0f;
     public float z = 0.0f;
@@ -88,33 +40,97 @@ public class seVector3 {
     }
 
     /**
+     * Store float min value.
+     */
+    private static final float MIN_VALUE = Float.MAX_VALUE * -1f - 1f;
+
+    /**
+     * Store float max value.
+     */
+    private static final float MAX_VALUE = Float.MAX_VALUE;
+
+    /**
+     * Vector3(0, 0, -1)
+     */
+    public static final seVector3 back = new seVector3(0, 0, -1);
+
+    /**
+     * Vector3(0, -1, 1)
+     */
+    public static final seVector3 down = new seVector3(0, -1, 1);
+
+    /**
+     * Vector3(0, 0, 1)
+     */
+    public static final seVector3 forward = new seVector3(0, 0, 1);
+
+    /**
+     * Vector3(-1, 0, 0)
+     */
+    public static final seVector3 left = new seVector3(-1, 0, 0);
+
+    /**
+     * Vector3(1, 1, 1)
+     */
+    public static final seVector3 one = new seVector3(1, 1, 1);
+
+    /**
+     * Vector3(1, 0, 0)
+     */
+    public static final seVector3 right = new seVector3(1, 0, 0);
+
+    /**
+     * Vector3(0, 1, 0)
+     */
+    public static final seVector3 up = new seVector3(0, 1, 0);
+
+    /**
+     * Vector3(0, 0, 0)
+     */
+    public static final seVector3 zero = new seVector3(0, 0, 0);
+
+    /**
+     * Creates new vector using negative infinity.
+     */
+    public static final seVector3 negativeInfinity = new seVector3(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
+
+    /**
+     * Creates new vector using positive infinity.
+     */
+    public static final seVector3 positiveInfinity = new seVector3(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY);
+
+    /**
+     * Provides the smallest possible vector.
+     */
+    public static final seVector3 min = new seVector3(MIN_VALUE, MIN_VALUE, MIN_VALUE);
+
+    /**
+     * Provides the largest possible vector.
+     */
+    public static final seVector3 max = new seVector3(MAX_VALUE, MAX_VALUE, MAX_VALUE);
+
+    /**
      * Provides new random vector.
      * Note: Integer used to determine min and max values.
      */
-    final public static seVector3 Random() {
-        final float min = (float) Integer.MAX_VALUE * -1 - 1;
-        final float max = (float) Integer.MAX_VALUE;
-        return new seVector3(seRandom.Range(min, max), seRandom.Range(min, max), seRandom.Range(min, max));
+    public static final seVector3 Random() {
+        return new seVector3(seRandom.Range(MIN_VALUE, MAX_VALUE), seRandom.Range(MIN_VALUE, MAX_VALUE), seRandom.Range(MIN_VALUE, MAX_VALUE));
     }
 
     /**
      * Provides new positive random vector.
      * Note: Integer used to determine min and max values.
      */
-    final public static seVector3 RandomPositive() {
-        final float min = 1f;
-        final float max = Integer.MAX_VALUE;
-        return new seVector3(seRandom.Range(min, max), seRandom.Range(min, max), seRandom.Range(min, max));
+    public static seVector3 RandomPositive() {
+        return new seVector3(seRandom.Range(1f, MAX_VALUE), seRandom.Range(1f, MAX_VALUE), seRandom.Range(1f, MAX_VALUE));
     }
 
     /**
      * Provides new negative random vector.
      * Note: Integer used to determine min and max values.
      */
-    final public static seVector3 RandomNegative() {
-        final float min = (float) Integer.MAX_VALUE * -1 - 1;
-        final float max = -1f;
-        return new seVector3(seRandom.Range(min, max), seRandom.Range(min, max), seRandom.Range(min, max));
+    public static seVector3 RandomNegative() {
+        return new seVector3(seRandom.Range(MIN_VALUE, -1f), seRandom.Range(MIN_VALUE, -1f), seRandom.Range(MIN_VALUE, -1f));
     }
 
     /**
@@ -124,7 +140,7 @@ public class seVector3 {
      * @param max
      * @return
      */
-    final public static seVector3 RandomRange(float min, float max) {
+    public static seVector3 RandomRange(float min, float max) {
         if (min > max) {
             float temp = min;
             min = max;
@@ -141,7 +157,7 @@ public class seVector3 {
      * @param max
      * @return
      */
-    final public static seVector3 Clamp(seVector3 vector, seVector3 min, seVector3 max) {
+    public static seVector3 Clamp(seVector3 vector, seVector3 min, seVector3 max) {
         return Min(Max(vector, Min(min, max)), Max(min, max));
     }
 
@@ -153,7 +169,7 @@ public class seVector3 {
      * @param ranges
      * @return
      */
-    final public static seVector3 ClampAll(seVector3 vector, seVector3... ranges) {
+    public static seVector3 ClampAll(seVector3 vector, seVector3... ranges) {
         if (ranges.length == 0)
             return vector;
         if (ranges.length == 1)
@@ -168,7 +184,7 @@ public class seVector3 {
      * @param b
      * @return
      */
-    final public static boolean AnyGreaterThan(seVector3 a, seVector3 b) {
+    public static boolean AnyGreaterThan(seVector3 a, seVector3 b) {
         return a.x > b.x || a.y > b.y || a.z > b.z;
     }
 
@@ -179,7 +195,7 @@ public class seVector3 {
      * @param b
      * @return
      */
-    final public static boolean AnyLessThan(seVector3 a, seVector3 b) {
+    public static boolean AnyLessThan(seVector3 a, seVector3 b) {
         return a.x < b.x || a.y < b.y || a.z < b.z;
     }
 
@@ -190,7 +206,7 @@ public class seVector3 {
      * @param b
      * @return
      */
-    final public static Float Distance(seVector3 a, seVector3 b) {
+    public static Float Distance(seVector3 a, seVector3 b) {
         return (float) Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2) + Math.pow(a.z - b.z, 2));
     }
 
@@ -201,7 +217,7 @@ public class seVector3 {
      * @param b
      * @return
      */
-    final public static seVector3 Add(seVector3 a, seVector3 b) {
+    public static seVector3 Add(seVector3 a, seVector3 b) {
         return new seVector3(a.x + b.x, a.y + b.y, a.z + b.z);
     }
 
@@ -212,7 +228,7 @@ public class seVector3 {
      * @param b
      * @return
      */
-    final public static seVector3 Subtract(seVector3 a, seVector3 b) {
+    public static final seVector3 Subtract(seVector3 a, seVector3 b) {
         return new seVector3(a.x - b.x, a.y - b.y, a.z - b.z);
     }
 
@@ -257,7 +273,7 @@ public class seVector3 {
      * @return
      */
     @Deprecated
-    final public static seVector3 Multiply(seVector3 vector, float multiplier) {
+    public static seVector3 Multiply(seVector3 vector, float multiplier) {
         return Scale(vector, multiplier);
     }
 
@@ -268,7 +284,7 @@ public class seVector3 {
      * @param multiplier
      * @return
      */
-    final public static seVector3 Scale(seVector3 vector, float multiplier) {
+    public static seVector3 Scale(seVector3 vector, float multiplier) {
         return new seVector3(vector.x * multiplier, vector.y * multiplier, vector.z * multiplier);
     }
 
@@ -279,7 +295,7 @@ public class seVector3 {
      * @param divider
      * @return
      */
-    final public static seVector3 Divide(seVector3 vector, float divider) {
+    public static seVector3 Divide(seVector3 vector, float divider) {
         if (divider == 0)
             return seVector3.zero;
         return new seVector3(vector.x / divider, vector.y / divider, vector.z / divider);
@@ -291,7 +307,7 @@ public class seVector3 {
      * @param vectors
      * @return
      */
-    final public static boolean EqualAll(seVector3... vectors) {
+    public static boolean EqualAll(seVector3... vectors) {
         if (vectors.length < 2)
             return true;
         seVector3 first = vectors[0];
@@ -307,7 +323,7 @@ public class seVector3 {
      * @param s
      * @return
      */
-    final public static seVector3 TryParse(String s) {
+    public static seVector3 TryParse(String s) {
         s = seString.NullCheck(s).replace("\"", "").trim().toLowerCase();
 
         switch (s) {
@@ -380,7 +396,7 @@ public class seVector3 {
      * @param t
      * @return
      */
-    final public static seVector3 Lerp(seVector3 a, seVector3 b, float t) {
+    public static seVector3 Lerp(seVector3 a, seVector3 b, float t) {
         t = seMath.Clamp01(t);
         return new seVector3(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t, a.z + (b.z - a.z) * t);
     }
@@ -398,7 +414,7 @@ public class seVector3 {
 
     /**
      * Returns a new vector with smallest values between multiple vectors.
-     * Note: This method is slower than {@link #Min(seVector3, seVector3)} if using 2 vectors.
+     * Note: This method is slower than {@link #Min(seVector3, seVector3)} when only using 2 vectors.
      *
      * @param vectors
      * @return
@@ -460,7 +476,7 @@ public class seVector3 {
     }
 
     @Override
-    final public boolean equals(Object o) {
+    public boolean equals(Object o) {
         // Return true if itself.
         if (o == this)
             return true;
@@ -483,7 +499,7 @@ public class seVector3 {
      * @param y
      * @param z
      */
-    final public void set(float x, float y, float z) {
+    public final void set(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -495,7 +511,7 @@ public class seVector3 {
      * @param vector
      * @return
      */
-    final public boolean anyGreaterThan(seVector3 vector) {
+    public final boolean anyGreaterThan(seVector3 vector) {
         return AnyGreaterThan(this, vector);
     }
 
@@ -505,7 +521,7 @@ public class seVector3 {
      * @param vector
      * @return
      */
-    final public boolean anyLessThan(seVector3 vector) {
+    public final boolean anyLessThan(seVector3 vector) {
         return AnyLessThan(this, vector);
     }
 
@@ -515,7 +531,7 @@ public class seVector3 {
      * @param other
      * @return
      */
-    final public Float distanceTo(seVector3 other) {
+    public final Float distanceTo(seVector3 other) {
         return Distance(this, other);
     }
 
@@ -525,7 +541,7 @@ public class seVector3 {
      * @param vector
      * @return
      */
-    final public seVector3 add(seVector3 vector) {
+    public final seVector3 add(seVector3 vector) {
         return Add(this, vector);
     }
 
@@ -535,7 +551,7 @@ public class seVector3 {
      * @param vector
      * @return
      */
-    final public seVector3 subtract(seVector3 vector) {
+    public final seVector3 subtract(seVector3 vector) {
         return Subtract(this, vector);
     }
 
@@ -545,7 +561,7 @@ public class seVector3 {
      *
      * @return
      */
-    final public float magnitude() {
+    public final float magnitude() {
         return Magnitude(this);
     }
 
@@ -554,7 +570,7 @@ public class seVector3 {
      *
      * @return
      */
-    final public float sqrMagnitude() {
+    public final float sqrMagnitude() {
         return SqrMagnitude(this);
     }
 
@@ -564,7 +580,7 @@ public class seVector3 {
      * @param v
      * @return
      */
-    final public float dot(seVector3 v) {
+    public final float dot(seVector3 v) {
         return Dot(this, v);
     }
 
@@ -574,7 +590,7 @@ public class seVector3 {
      * @param multiplier
      * @return
      */
-    final public seVector3 multiply(float multiplier) {
+    public final seVector3 multiply(float multiplier) {
         return Scale(this, multiplier);
     }
 
@@ -584,244 +600,8 @@ public class seVector3 {
      * @param divider
      * @return
      */
-    final public seVector3 divide(float divider) {
+    public final seVector3 divide(float divider) {
         return Divide(this, divider);
     }
 
-    /**
-     * Create a selection between 2 vectors.
-     */
-    public static class Selection {
-        /**
-         * Selection minimum.
-         */
-        public seVector3 pos1;
-        /**
-         * Selection maximum.
-         */
-        public seVector3 pos2;
-
-        /**
-         * Initialize with 2 vectors.
-         *
-         * @param pos1
-         * @param pos2
-         */
-        public Selection(seVector3 pos1, seVector3 pos2) {
-            if (pos1 == null)
-                pos1 = seVector3.min;
-            if (pos2 == null)
-                pos2 = seVector3.max;
-            // Get smallest xyz to make pos1 vector.
-            this.pos1 = seVector3.Min(pos1, pos2);
-            // Get largest xyz to make pos2 vector.
-            this.pos2 = seVector3.Max(pos1, pos2);
-        }
-
-        /**
-         * Initialize with the largest possible selection.
-         */
-        public Selection() {
-            this.pos1 = seVector3.min;
-            this.pos2 = seVector3.max;
-        }
-
-        /**
-         * Verifies value is within x selection.
-         *
-         * @param value
-         * @return
-         */
-        public boolean inRangeX(float value) {
-            return value >= pos1.x && value <= pos2.x;
-        }
-
-        /**
-         * Verifies value is within x selection.
-         *
-         * @param value
-         * @return
-         */
-        public boolean inRangeX(int value) {
-            return value >= pos1.x && value <= pos2.x;
-        }
-
-        /**
-         * Verifies all values are within x selection.
-         *
-         * @param values
-         * @return
-         */
-        public boolean inRangeAllX(float... values) {
-            for (int i = 0; i < values.length; i++)
-                if (values[i] < pos1.x && values[i] > pos2.x)
-                    return false;
-            return true;
-        }
-
-        /**
-         * Verifies all values are within x selection.
-         *
-         * @param values
-         * @return
-         */
-        public boolean inRangeAllX(int... values) {
-            for (int i = 0; i < values.length; i++)
-                if (values[i] < pos1.x && values[i] > pos2.x)
-                    return false;
-            return true;
-        }
-
-        /**
-         * Verifies value is within y selection.
-         *
-         * @param value
-         * @return
-         */
-        public boolean inRangeY(float value) {
-            return value >= pos1.y && value <= pos2.y;
-        }
-
-        /**
-         * Verifies value is within y selection.
-         *
-         * @param value
-         * @return
-         */
-        public boolean inRangeY(int value) {
-            return value >= pos1.y && value <= pos2.y;
-        }
-
-        /**
-         * Verifies all values are within y selection.
-         *
-         * @param values
-         * @return
-         */
-        public boolean inRangeAllY(float... values) {
-            for (int i = 0; i < values.length; i++)
-                if (values[i] < pos1.y && values[i] > pos2.y)
-                    return false;
-            return true;
-        }
-
-        /**
-         * Verifies all values are within y selection.
-         *
-         * @param values
-         * @return
-         */
-        public boolean inRangeAllY(int... values) {
-            for (int i = 0; i < values.length; i++)
-                if (values[i] < pos1.y && values[i] > pos2.y)
-                    return false;
-            return true;
-        }
-
-        /**
-         * Verifies value is within z selection.
-         *
-         * @param value
-         * @return
-         */
-        public boolean inRangeZ(float value) {
-            return value >= pos1.z && value <= pos2.z;
-        }
-
-        /**
-         * Verifies value is within z selection.
-         *
-         * @param value
-         * @return
-         */
-        public boolean inRangeZ(int value) {
-            return value >= pos1.z && value <= pos2.z;
-        }
-
-        /**
-         * Verifies all values are within z selection.
-         *
-         * @param values
-         * @return
-         */
-        public boolean inRangeAllZ(float... values) {
-            for (int i = 0; i < values.length; i++)
-                if (values[i] < pos1.z && values[i] > pos2.z)
-                    return false;
-            return true;
-        }
-
-        /**
-         * Verifies all values are within z selection.
-         *
-         * @param values
-         * @return
-         */
-        public boolean inRangeAllZ(int... values) {
-            for (int i = 0; i < values.length; i++)
-                if (values[i] < pos1.z && values[i] > pos2.z)
-                    return false;
-            return true;
-        }
-
-        /**
-         * Verifies vector floats are within selection.
-         *
-         * @param x
-         * @param y
-         * @param z
-         * @return
-         */
-        public boolean inRange(float x, float y, float z) {
-            return x >= pos1.x && y >= pos1.y && z >= pos1.z && x <= pos2.x && y <= pos2.y && z <= pos2.z;
-        }
-
-        /**
-         * Verifies vector ints are within selection.
-         *
-         * @param x
-         * @param y
-         * @param z
-         * @return
-         */
-        public boolean inRange(int x, int y, int z) {
-            return x >= pos1.x && y >= pos1.y && z >= pos1.z && x <= pos2.x && y <= pos2.y && z <= pos2.z;
-        }
-
-        /**
-         * Verifies vector is within selection.
-         *
-         * @param vector
-         * @return
-         */
-        public boolean inRange(seVector3 vector) {
-            return vector.x >= pos1.x && vector.y >= pos1.y && vector.z >= pos1.z && vector.x <= pos2.x && vector.y <= pos2.y && vector.z <= pos2.z;
-        }
-
-        /**
-         * Verifies vectors are within selection.
-         *
-         * @param vectors
-         * @return
-         */
-        public boolean inRangeAll(seVector3... vectors) {
-            for (int i = 0; i < vectors.length; i++) {
-                seVector3 vector = vectors[i];
-                if (vector.x < pos1.x && vector.y < pos1.y && vector.z < pos1.z && vector.x > pos2.x && vector.y > pos2.y && vector.z > pos2.z)
-                    return false;
-            }
-            return true;
-        }
-
-        /**
-         * Keep selection within range of min to max.
-         *
-         * @param min
-         * @param max
-         */
-        public void clamp(seVector3 min, seVector3 max) {
-            pos1 = seVector3.ClampAll(pos1, min, max);
-            pos2 = seVector3.ClampAll(pos2, min, max);
-        }
-    }
 }

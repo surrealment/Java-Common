@@ -24,7 +24,7 @@ public class seMath {
      * @param max   Maximum allowed value.
      * @return
      */
-    final public static byte Clamp(byte value, byte min, byte max) {
+    public static byte Clamp(byte value, byte min, byte max) {
         if (value > max)
             return max;
         if (value < min)
@@ -38,7 +38,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static byte Min(byte... numbers) {
+    public static byte Min(byte... numbers) {
         if (numbers.length == 0)
             return 0;
         byte low = numbers[0];
@@ -54,7 +54,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static byte Max(byte... numbers) {
+    public static byte Max(byte... numbers) {
         if (numbers.length == 0)
             return 0;
         byte high = numbers[0];
@@ -70,7 +70,7 @@ public class seMath {
      * @param numbers
      * @return average of given numbers.
      */
-    final public static byte Average(byte... numbers) {
+    public static byte Average(byte... numbers) {
         if (numbers.length == 0)
             return 0;
         return (byte) (Sum(numbers) / numbers.length);
@@ -82,7 +82,7 @@ public class seMath {
      * @param numbers
      * @return total of given values.
      */
-    final public static byte Sum(byte... numbers) {
+    public static byte Sum(byte... numbers) {
         if (numbers.length == 0)
             return 0;
         byte total = numbers[0];
@@ -98,7 +98,7 @@ public class seMath {
      * @param numbers
      * @return true if match is found.
      */
-    final public static boolean Contains(byte match, byte... numbers) {
+    public static boolean Contains(byte match, byte... numbers) {
         for (int i = 0; i < numbers.length; i++)
             if (match == numbers[i])
                 return true;
@@ -111,7 +111,7 @@ public class seMath {
      * @param numbers
      * @return true if all numbers are the same.
      */
-    final public static boolean Equals(byte... numbers) {
+    public static boolean Equals(byte... numbers) {
         if (numbers.length < 2)
             return true;
         for (int i = 1; i < numbers.length; i++)
@@ -132,7 +132,7 @@ public class seMath {
      * @param max   Maximum allowed value.
      * @return
      */
-    final public static short Clamp(short value, short min, short max) {
+    public static short Clamp(short value, short min, short max) {
         if (value > max)
             return max;
         if (value < min)
@@ -147,7 +147,7 @@ public class seMath {
      * @param dataType
      * @return
      */
-    final public static short DataTypeClamp(Short value, NumberDataType dataType) {
+    public static short DataTypeClamp(Short value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
             return seMath.Clamp(value, (short) ((Byte.MAX_VALUE * -1 - 1)), (short) Byte.MAX_VALUE);
 
@@ -160,7 +160,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static short Min(short... numbers) {
+    public static short Min(short... numbers) {
         if (numbers.length == 0)
             return 0;
         short low = numbers[0];
@@ -176,7 +176,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static short Max(short... numbers) {
+    public static short Max(short... numbers) {
         if (numbers.length == 0)
             return 0;
         short high = numbers[0];
@@ -192,7 +192,7 @@ public class seMath {
      * @param numbers
      * @return average of given numbers.
      */
-    final public static short Average(short... numbers) {
+    public static short Average(short... numbers) {
         if (numbers.length == 0)
             return 0;
         return (short) (Sum(numbers) / numbers.length);
@@ -204,7 +204,7 @@ public class seMath {
      * @param numbers
      * @return total of given values.
      */
-    final public static short Sum(short... numbers) {
+    public static short Sum(short... numbers) {
         if (numbers.length == 0)
             return 0;
         short total = numbers[0];
@@ -220,7 +220,7 @@ public class seMath {
      * @param numbers
      * @return true if match is found.
      */
-    final public static boolean Contains(short match, short... numbers) {
+    public static boolean Contains(short match, short... numbers) {
         for (int i = 0; i < numbers.length; i++)
             if (match == numbers[i])
                 return true;
@@ -233,7 +233,7 @@ public class seMath {
      * @param numbers
      * @return true if all numbers are the same.
      */
-    final public static boolean Equals(short... numbers) {
+    public static boolean Equals(short... numbers) {
         if (numbers.length < 2)
             return true;
         for (int i = 1; i < numbers.length; i++)
@@ -254,7 +254,7 @@ public class seMath {
      * @param max   Maximum allowed value.
      * @return
      */
-    final public static int Clamp(int value, int min, int max) {
+    public static int Clamp(int value, int min, int max) {
         if (value > max)
             return max;
         if (value < min)
@@ -269,7 +269,7 @@ public class seMath {
      * @param dataType
      * @return
      */
-    final public static int DataTypeClamp(int value, NumberDataType dataType) {
+    public static int DataTypeClamp(int value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
             return seMath.Clamp(value, (int) (Byte.MAX_VALUE * -1 - 1), (int) Byte.MAX_VALUE);
         if (dataType == NumberDataType.Short)
@@ -283,7 +283,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static int Min(int... numbers) {
+    public static int Min(int... numbers) {
         if (numbers.length == 0)
             return 0;
         int low = numbers[0];
@@ -299,7 +299,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static int Min(int[]... numbers) {
+    public static int Min(int[]... numbers) {
         if (numbers.length == 0)
             return 0;
         int record = Min(numbers[0]);
@@ -317,7 +317,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static int Max(int... numbers) {
+    public static int Max(int... numbers) {
         if (numbers.length == 0)
             return 0;
         int high = numbers[0];
@@ -333,7 +333,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static int Max(int[]... numbers) {
+    public static int Max(int[]... numbers) {
         if (numbers.length == 0)
             return 0;
         int record = Max(numbers[0]);
@@ -351,7 +351,7 @@ public class seMath {
      * @param numbers
      * @return average of given numbers.
      */
-    final public static int Average(int... numbers) {
+    public static int Average(int... numbers) {
         if (numbers.length == 0)
             return 0;
         return Sum(numbers) / numbers.length;
@@ -363,7 +363,7 @@ public class seMath {
      * @param numbers
      * @return total of given values.
      */
-    final public static int Sum(int... numbers) {
+    public static int Sum(int... numbers) {
         if (numbers.length == 0)
             return 0;
         int total = numbers[0];
@@ -379,7 +379,7 @@ public class seMath {
      * @param numbers
      * @return true if match is found.
      */
-    final public static boolean Contains(int match, int... numbers) {
+    public static boolean Contains(int match, int... numbers) {
         for (int i = 0; i < numbers.length; i++)
             if (match == numbers[i])
                 return true;
@@ -392,7 +392,7 @@ public class seMath {
      * @param numbers
      * @return true if all numbers are the same.
      */
-    final public static boolean Equals(int... numbers) {
+    public static boolean Equals(int... numbers) {
         if (numbers.length < 2)
             return true;
         for (int i = 1; i < numbers.length; i++)
@@ -413,7 +413,7 @@ public class seMath {
      * @param max   Maximum allowed value.
      * @return
      */
-    final public static long Clamp(long value, long min, long max) {
+    public static long Clamp(long value, long min, long max) {
         if (value > max)
             return max;
         if (value < min)
@@ -428,7 +428,7 @@ public class seMath {
      * @param dataType
      * @return
      */
-    final public static long DataTypeClamp(long value, NumberDataType dataType) {
+    public static long DataTypeClamp(long value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
             return seMath.Clamp(value, (long) (Byte.MAX_VALUE * -1 - 1), (long) Byte.MAX_VALUE);
         if (dataType == NumberDataType.Short)
@@ -445,9 +445,9 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static long Min(long... numbers) {
+    public static long Min(long... numbers) {
         if (numbers.length == 0)
-            return 0l;
+            return 0L;
         long low = numbers[0];
         for (int i = 1; i < numbers.length; i++)
             if (low > numbers[i])
@@ -461,9 +461,9 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static long Max(long... numbers) {
+    public static long Max(long... numbers) {
         if (numbers.length == 0)
-            return 0l;
+            return 0L;
         long high = numbers[0];
         for (int i = 1; i < numbers.length; i++)
             if (numbers[i] > high)
@@ -477,7 +477,7 @@ public class seMath {
      * @param numbers
      * @return average of given numbers.
      */
-    final public static long Average(long... numbers) {
+    public static long Average(long... numbers) {
         if (numbers.length == 0)
             return 0;
         return Sum(numbers) / numbers.length;
@@ -489,7 +489,7 @@ public class seMath {
      * @param numbers
      * @return total of given values.
      */
-    final public static long Sum(long... numbers) {
+    public static long Sum(long... numbers) {
         if (numbers.length == 0)
             return 0;
         long total = numbers[0];
@@ -505,7 +505,7 @@ public class seMath {
      * @param numbers
      * @return true if match is found.
      */
-    final public static boolean Contains(long match, long... numbers) {
+    public static boolean Contains(long match, long... numbers) {
         for (int i = 0; i < numbers.length; i++)
             if (match == numbers[i])
                 return true;
@@ -518,7 +518,7 @@ public class seMath {
      * @param numbers
      * @return true if all numbers are the same.
      */
-    final public static boolean Equals(long... numbers) {
+    public static boolean Equals(long... numbers) {
         if (numbers.length < 2)
             return true;
         for (int i = 1; i < numbers.length; i++)
@@ -539,7 +539,7 @@ public class seMath {
      * @param max   Maximum allowed value.
      * @return
      */
-    final public static float Clamp(float value, float min, float max) {
+    public static float Clamp(float value, float min, float max) {
         if (value > max)
             return max;
         if (value < min)
@@ -553,7 +553,7 @@ public class seMath {
      * @param value
      * @return
      */
-    final public static float Clamp01(float value) {
+    public static float Clamp01(float value) {
         return Clamp(value, 0f, 1f);
     }
 
@@ -564,7 +564,7 @@ public class seMath {
      * @param dataType
      * @return
      */
-    final public static float DataTypeClamp(float value, NumberDataType dataType) {
+    public static float DataTypeClamp(float value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
             return seMath.Clamp(value, (float) (Byte.MAX_VALUE * -1 - 1), (float) Byte.MAX_VALUE);
         if (dataType == NumberDataType.Short)
@@ -583,7 +583,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static float Min(float... numbers) {
+    public static float Min(float... numbers) {
         if (numbers.length == 0)
             return 0f;
         float low = numbers[0];
@@ -599,7 +599,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static float Max(float... numbers) {
+    public static float Max(float... numbers) {
         if (numbers.length == 0)
             return 0f;
         float high = numbers[0];
@@ -615,7 +615,7 @@ public class seMath {
      * @param numbers
      * @return average of given numbers.
      */
-    final public static float Average(float... numbers) {
+    public static float Average(float... numbers) {
         if (numbers.length == 0)
             return 0;
         return Sum(numbers) / numbers.length;
@@ -627,7 +627,7 @@ public class seMath {
      * @param numbers
      * @return total of given values.
      */
-    final public static float Sum(float... numbers) {
+    public static float Sum(float... numbers) {
         if (numbers.length == 0)
             return 0;
         float total = numbers[0];
@@ -643,7 +643,7 @@ public class seMath {
      * @param numbers
      * @return true if match is found.
      */
-    final public static boolean Contains(float match, float... numbers) {
+    public static boolean Contains(float match, float... numbers) {
         for (int i = 0; i < numbers.length; i++)
             if (match == numbers[i])
                 return true;
@@ -656,7 +656,7 @@ public class seMath {
      * @param numbers
      * @return true if all numbers are the same.
      */
-    final public static boolean Equals(float... numbers) {
+    public static boolean Equals(float... numbers) {
         if (numbers.length < 2)
             return true;
         for (int i = 1; i < numbers.length; i++)
@@ -677,7 +677,7 @@ public class seMath {
      * @param max   Maximum allowed value.
      * @return
      */
-    final public static double Clamp(double value, double min, double max) {
+    public static double Clamp(double value, double min, double max) {
         if (value > max)
             return max;
         if (value < min)
@@ -691,7 +691,7 @@ public class seMath {
      * @param value
      * @return
      */
-    final public static double Clamp01(double value) {
+    public static double Clamp01(double value) {
         return Clamp(value, 0d, 1d);
     }
 
@@ -702,7 +702,7 @@ public class seMath {
      * @param dataType
      * @return
      */
-    final public static double DataTypeClamp(double value, NumberDataType dataType) {
+    public static double DataTypeClamp(double value, NumberDataType dataType) {
         if (dataType == NumberDataType.Byte)
             return seMath.Clamp(value, (double) (Byte.MAX_VALUE * -1 - 1), (double) Byte.MAX_VALUE);
         if (dataType == NumberDataType.Short)
@@ -723,7 +723,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static double Min(double... numbers) {
+    public static double Min(double... numbers) {
         if (numbers.length == 0)
             return 0d;
         double low = numbers[0];
@@ -739,7 +739,7 @@ public class seMath {
      * @param numbers
      * @return
      */
-    final public static double Max(double... numbers) {
+    public static double Max(double... numbers) {
         if (numbers.length == 0)
             return 0d;
         double high = numbers[0];
@@ -755,7 +755,7 @@ public class seMath {
      * @param numbers
      * @return average of given numbers.
      */
-    final public static double Average(double... numbers) {
+    public static double Average(double... numbers) {
         if (numbers.length == 0)
             return 0;
         return Sum(numbers) / numbers.length;
@@ -767,7 +767,7 @@ public class seMath {
      * @param numbers
      * @return total of given values.
      */
-    final public static double Sum(double... numbers) {
+    public static double Sum(double... numbers) {
         if (numbers.length == 0)
             return 0;
         double total = numbers[0];
@@ -783,7 +783,7 @@ public class seMath {
      * @param numbers
      * @return true if match is found.
      */
-    final public static boolean Contains(double match, double... numbers) {
+    public static boolean Contains(double match, double... numbers) {
         for (int i = 0; i < numbers.length; i++)
             if (match == numbers[i])
                 return true;
@@ -796,7 +796,7 @@ public class seMath {
      * @param numbers
      * @return true if all numbers are the same.
      */
-    final public static boolean Equals(double... numbers) {
+    public static boolean Equals(double... numbers) {
         if (numbers.length < 2)
             return true;
         for (int i = 1; i < numbers.length; i++)
@@ -843,7 +843,7 @@ public class seMath {
      * you can change type of noise between grad & value noise by commenting/uncommenting block
      * you can change type of interpolation between bicubic/bilinear by commenting/uncommenting block
      */
-    final public static long PerlinNoise(double x, double y, float zoom, int nbOctave) {
+    public static long PerlinNoise(double x, double y, float zoom, int nbOctave) {
         long result = 0;
         long frequence256 = (long) (256 * zoom);
         long sx = (long) (x / 128f * frequence256);

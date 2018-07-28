@@ -7,7 +7,7 @@ public class seOut {
     /**
      * Adds new line to console.
      */
-    final public static void NextLine() {
+    public static void NextLine() {
         System.out.println();
     }
 
@@ -17,7 +17,7 @@ public class seOut {
      * @deprecated use {@link #NextLine()} instead.
      */
     @Deprecated
-    final public static void PrintLine() {
+    public static void PrintLine() {
         NextLine();
     }
 
@@ -26,7 +26,7 @@ public class seOut {
      *
      * @param s
      */
-    final public static void PrintLine(String s) {
+    public static void PrintLine(String s) {
         lastOut = s;
         System.out.println(s);
     }
@@ -36,7 +36,7 @@ public class seOut {
      *
      * @param s
      */
-    final public static void Print(String s) {
+    public static void Print(String s) {
         Print(s, true);
     }
 
@@ -47,7 +47,7 @@ public class seOut {
      * @param s
      * @param orgin If true will replace current line.
      */
-    final public static void Print(String s, boolean orgin) {
+    public static void Print(String s, boolean orgin) {
         lastOut = s;
         if (orgin)
             System.out.print("\r" + s);
@@ -58,7 +58,7 @@ public class seOut {
     /**
      * Clear current line.
      */
-    final public static void Clear() {
+    public static void Clear() {
         System.out.print("\r" + seString.ReplicateCharacter(' ', lastOut.length()));
     }
 
@@ -68,7 +68,7 @@ public class seOut {
      *
      * @param character
      */
-    final public static void ClearWith(char character) {
+    public static void ClearWith(char character) {
         System.out.print("\r" + seString.ReplicateCharacter(character, lastOut.length()));
     }
 

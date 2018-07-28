@@ -3,7 +3,7 @@ package com.surrealment;
 public class seLoading {
 
     // String array used to create a load string.
-    final private static String[] loadString = new String[]{
+    public static String[] loadString = new String[]{
             "|O- - - - - - - |",
             "| o - - - - - - |",
             "| -o- - - - - - |",
@@ -43,16 +43,18 @@ public class seLoading {
      *
      * @return
      */
-    final public static String GetLoadString() {
+    public static String GetLoadString() {
         if (loadStringIndex >= loadString.length)
             loadStringIndex = 0;
+        if(loadString == null || loadString.length == 0)
+            return "";
         return loadString[loadStringIndex++];
     }
 
     /**
      * Reset index.
      */
-    final public static void Reset() {
+    public static void Reset() {
         loadStringIndex = 0;
     }
 
