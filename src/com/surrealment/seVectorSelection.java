@@ -19,7 +19,154 @@ public class seVectorSelection {
     private float max_z;
     private float max_w;
 
+    /**
+     * Initialized type.
+     */
     private VectorType vectorType = VectorType.Undefined;
+
+    /**
+     * Get the smallest x component.
+     *
+     * @return
+     */
+    public final float MinX() {
+        return min_x;
+    }
+
+    /**
+     * Get the smallest y component.
+     *
+     * @return
+     */
+    public final float MinY() {
+        return min_y;
+    }
+
+    /**
+     * Get the smallest z component.
+     *
+     * @return
+     */
+    public final float MinZ() {
+        return min_z;
+    }
+
+    /**
+     * Get the smallest w component.
+     *
+     * @return
+     */
+    public final float MinW() {
+        return min_w;
+    }
+
+    /**
+     * Get the greatest x component.
+     *
+     * @return
+     */
+    public final float MaxX() {
+        return max_x;
+    }
+
+    /**
+     * Get the greatest y component.
+     *
+     * @return
+     */
+    public final float MaxY() {
+        return max_y;
+    }
+
+    /**
+     * Get the greatest z component.
+     *
+     * @return
+     */
+    public final float MaxZ() {
+        return max_z;
+    }
+
+    /**
+     * Get the greatest w component.
+     *
+     * @return
+     */
+    public final float MaxW() {
+        return max_w;
+    }
+
+    /**
+     * Get the size from min to max.
+     *
+     * @return
+     */
+    public final float SizeX() {
+        return Math.abs(max_x - min_x);
+    }
+
+    /**
+     * Get the size from min to max.
+     *
+     * @return
+     */
+    public final float SizeY() {
+        return Math.abs(max_y - min_y);
+    }
+
+    /**
+     * Get the size from min to max.
+     *
+     * @return
+     */
+    public final float SizeZ() {
+        return Math.abs(max_z - min_z);
+    }
+
+    /**
+     * Get the size from min to max.
+     *
+     * @return
+     */
+    public final float SizeW() {
+        return Math.abs(max_w - min_w);
+    }
+
+    /**
+     * Gets selection smallest points.
+     *
+     * @return
+     */
+    public final seVector2 MinVector2() {
+        return new seVector2(min_x, min_y);
+    }
+
+    /**
+     * Gets selection greatest points.
+     *
+     * @return
+     */
+    public final seVector2 MaxVector2() {
+        return new seVector2(max_x, max_y);
+    }
+
+    /**
+     * Gets selection smallest points.
+     *
+     * @return
+     */
+    public final seVector3 MinVector3() {
+        return new seVector3(min_x, min_y, min_z);
+    }
+
+    /**
+     * Gets selection greatest points.
+     *
+     * @return
+     */
+    public final seVector3 MaxVector3() {
+        return new seVector3(max_x, max_y, max_z);
+    }
 
     /**
      * Initialize with 2 vectors.
@@ -87,6 +234,30 @@ public class seVectorSelection {
 
         // Set vector type.
         vectorType = VectorType.Vector2;
+    }
+
+    /**
+     * Gets total selection area in 2d space.
+     *
+     * @return
+     */
+    public final float totalSelection2D() {
+        if (vectorType == VectorType.Vector2)
+            return Math.abs(max_x - min_x) * Math.abs(max_y * min_y);
+        else if (vectorType == VectorType.Vector3)
+            return Math.abs(max_x - min_x) * Math.abs(max_z * min_z);
+        return 0f;
+    }
+
+    /**
+     * Gets total selection area in 3d space.
+     *
+     * @return
+     */
+    public final float totalSelection3D() {
+        if (vectorType == VectorType.Vector3)
+            return Math.abs(max_x - min_x) * Math.abs(max_y * min_y) * Math.abs(max_z * min_z);
+        return 0f;
     }
 
     /**
