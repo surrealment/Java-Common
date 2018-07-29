@@ -461,6 +461,22 @@ public class seVector3 {
         return new seVector3(seMath.Max(x), seMath.Max(y), seMath.Max(z));
     }
 
+    /**
+     * Averages array of vectors.
+     *
+     * @param vectors
+     * @return
+     */
+    public static seVector3 Average(seVector3... vectors) {
+        double x = 0, y = 0, z = 0;
+        for (int i = 0; i < vectors.length; i++) {
+            x += vectors[i].x;
+            y += vectors[i].y;
+            z += vectors[i].z;
+        }
+        return new seVector3((float) x / vectors.length, (float) y / vectors.length, (float) z / vectors.length);
+    }
+
     @Override
     public String toString() {
         java.text.DecimalFormat d = new java.text.DecimalFormat();
