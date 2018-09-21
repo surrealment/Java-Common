@@ -44,8 +44,10 @@ public class seSettings {
             line = line.trim();
             if (line.startsWith("[") && line.endsWith("]"))
                 category = line.substring(1, line.length() - 2);
-            else if (line.startsWith("//") || line.startsWith(";"))
-                help += (help.length() > 0) ? "\n" + line : line;
+            else if (line.startsWith("//"))
+                help += (help.length() > 0) ? "\n" + line.substring(2).trim() : line.substring(2).trim();
+            else if (line.startsWith(";") || line.startsWith("#"))
+                help += (help.length() > 0) ? "\n" + line.substring(1).trim() : line.substring(1).trim();
             else if (line.contains("=")) {
                 int e = line.indexOf("=");
                 String name = line.substring(0, e).trim();
@@ -88,7 +90,7 @@ public class seSettings {
             for (String name : defaultNames) {
                 Container container = GetContainer(category, name);
                 if (container.help.length() > 0)
-                    writer.println(container.help);
+                    writer.println("# " + container.help);
                 writer.println(name + " = " + container.value);
             }
             writer.println();
