@@ -243,9 +243,9 @@ public class seVectorSelection {
      */
     public final float totalSelection2D() {
         if (vectorType == VectorType.Vector2)
-            return Math.abs(max_x - min_x) * Math.abs(max_y * min_y);
+            return Math.abs(max_x - min_x) * Math.abs(max_y - min_y);
         else if (vectorType == VectorType.Vector3)
-            return Math.abs(max_x - min_x) * Math.abs(max_z * min_z);
+            return Math.abs(max_x - min_x) * Math.abs(max_z - min_z);
         return 0f;
     }
 
@@ -256,7 +256,7 @@ public class seVectorSelection {
      */
     public final float totalSelection3D() {
         if (vectorType == VectorType.Vector3)
-            return Math.abs(max_x - min_x) * Math.abs(max_y * min_y) * Math.abs(max_z * min_z);
+            return Math.abs(max_x - min_x) * Math.abs(max_y - min_y) * Math.abs(max_z - min_z);
         return 0f;
     }
 
