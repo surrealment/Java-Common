@@ -519,4 +519,30 @@ public class seVectorSelection {
         return this;
     }
 
+    /**
+     * Change min and max selection by amount.
+     * @param vector
+     * @return
+     */
+    public final seVectorSelection offset(seVector3 vector){
+        min_x += vector.x;
+        min_y += vector.y;
+        min_z += vector.z;
+        max_x += vector.x;
+        max_y += vector.y;
+        max_z += vector.z;
+
+        return this;
+    }
+
+    /**
+     * Change min and max selection by amount.
+     * @param selection
+     * @param vector
+     * @return
+     */
+    public static seVectorSelection Offset (seVectorSelection selection, seVector3 vector){
+        return new seVectorSelection(selection.MinVector3().add(vector), selection.MaxVector3().add(vector));
+    }
+
 }
